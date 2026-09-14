@@ -10,10 +10,9 @@ from pathlib import Path
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
 
-TRAIN_DIR = PROJECT_DIR / "data" / "splits" / "train"
-VAL_DIR = PROJECT_DIR / "data" / "splits" / "validation"
-
-MODEL_PATH = PROJECT_DIR / "model" / "signalscope_resnet18_v3.pth"
+TRAIN_DIR = PROJECT_DIR / "data" / "unseen_wukong" / "train"
+VAL_DIR = PROJECT_DIR / "data" / "unseen_wukong" / "val"
+MODEL_PATH = PROJECT_DIR / "model" / "signalscope_resnet18_unseen_wukong.pth"
 
 BATCH_SIZE = 32
 EPOCHS = 15

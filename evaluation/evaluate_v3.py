@@ -24,7 +24,7 @@ import numpy as np
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
 
-TEST_DIR = PROJECT_DIR / "data" / "dataset_v3" / "test"
+TEST_DIR = PROJECT_DIR / "data" / "splits" / "test"
 MODEL_PATH = PROJECT_DIR / "model" / "signalscope_resnet18_v3.pth"
 
 BATCH_SIZE = 32
@@ -104,7 +104,7 @@ model.eval()
 
 all_labels = []
 all_predictions = []
-all_real_probabilities = []
+all_ai_probabilities = []
 
 
 with torch.no_grad():
@@ -125,24 +125,27 @@ with torch.no_grad():
         )
 
         # Class mapping:
-        # AI   = 0
-        # Real = 1
+        # Real      = 0
+        # Synthetic = 1
         #
-        # ROC-AUC should use probability
-        # of the positive class = Real.
-
-        all_real_probabilities.extend(
+        # For ROC-AUC, use probability
+        # of the positive class = Synthetic/AI.
+        all_ai_probabilities.extend(
             probabilities[:, 1]
             .cpu()
             .numpy()
         )
+
+print("DEBUG labels:", len(all_labels))
+print("DEBUG predictions:", len(all_predictions))
+print("DEBUG AI probabilities:", len(all_ai_probabilities))
 
 
 # Convert to NumPy arrays
 
 y_true = np.array(all_labels)
 y_pred = np.array(all_predictions)
-y_real_prob = np.array(all_real_probabilities)
+y_ai_prob = np.asarray(all_ai_probabilities).reshape(-1)
 
 
 # ============================================================
@@ -175,7 +178,7 @@ macro_f1 = f1_score(
 
 roc_auc = roc_auc_score(
     y_true,
-    y_real_prob
+    y_ai_prob
 )
 
 
@@ -206,7 +209,7 @@ print(
     classification_report(
         y_true,
         y_pred,
-        target_names=["AI", "Real"],
+        target_names=["Real", "AI"],
         zero_division=0
     )
 )
@@ -243,12 +246,12 @@ plt.ylabel("True Label")
 
 plt.xticks(
     [0, 1],
-    ["AI", "Real"]
+    ["Real", "AI"]
 )
 
 plt.yticks(
     [0, 1],
-    ["AI", "Real"]
+    ["Real", "AI"]
 )
 
 for i in range(2):

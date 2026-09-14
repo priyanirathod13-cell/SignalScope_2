@@ -13,7 +13,7 @@ from model.model import load_model
 # SignalScope Prediction
 # ============================================================
 
-PROJECT_DIR = Path(r"D:\SignalScope")
+PROJECT_DIR = PROJECT_DIR = Path(__file__).resolve().parent.parent
 
 MODEL_PATH = (
     PROJECT_DIR
@@ -50,10 +50,7 @@ transform = transforms.Compose([
 # Classes
 # ============================================================
 
-CLASS_NAMES = {
-    0: "AI",
-    1: "Real"
-}
+CLASS_NAMES = {0: "Real", 1: "AI"}
 
 
 # ============================================================
@@ -113,15 +110,8 @@ def predict_image(image_path):
     ).item()
 
 
-    ai_probability = (
-        probabilities[0].item()
-        * 100
-    )
-
-    real_probability = (
-        probabilities[1].item()
-        * 100
-    )
+    real_probability = probabilities[0].item()*100
+    ai_probability = probabilities[1].item()*100
     
 
     confidence = (
