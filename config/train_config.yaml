@@ -1,0 +1,27 @@
+# SignalScope Baseline Model Training Configuration
+model:
+  name: "efficientnet_b0"
+  num_classes: 2
+  pretrained: true
+  freeze_features: true
+  unfreeze_top_block: true
+  dropout_rate: 0.3
+
+data:
+  train_dir: "data/splits/train"
+  val_dir: "data/splits/validation"
+  test_dir: "data/splits/test"
+  metadata_csv: "data/metadata/dataset_metadata.csv"
+  image_size: 224
+  batch_size: 32
+  num_workers: 2
+
+training:
+  epochs: 3
+  learning_rate: 0.001
+  weight_decay: 0.01
+  patience: 3
+  seed: 42
+  device: "auto"
+  checkpoint_dir: "models/baseline"
+  class_weights: "balanced"

@@ -1,0 +1,52 @@
+# SignalScope Dataset Configuration
+
+dataset:
+  name: "GenImage Benchmark Subset"
+  source: "https://huggingface.co/datasets/jhutter2/281_Genimage"
+  original_paper: "GenImage: A Million-Scale Dataset for Detecting AI-Generated Image (NeurIPS 2023)"
+  license: "MIT (Subset) / CC-BY-NC-SA 4.0 (Original Benchmark)"
+  target_resolution: [256, 256]
+  channels: 3
+
+paths:
+  raw_dir: "data/raw"
+  raw_real_dir: "data/raw/real"
+  raw_synthetic_dir: "data/raw/synthetic"
+  processed_dir: "data/processed"
+  splits_dir: "data/splits"
+  train_real_dir: "data/splits/train/real"
+  train_synthetic_dir: "data/splits/train/synthetic"
+  val_real_dir: "data/splits/validation/real"
+  val_synthetic_dir: "data/splits/validation/synthetic"
+  test_real_dir: "data/splits/test/real"
+  test_synthetic_dir: "data/splits/test/synthetic"
+  metadata_dir: "data/metadata"
+  inventory_csv: "data/metadata/dataset_inventory.csv"
+  dataset_info_md: "data/metadata/dataset_info.md"
+  splits_summary_json: "data/metadata/splits_summary.json"
+
+splits:
+  train_ratio: 0.70
+  val_ratio: 0.15
+  test_ratio: 0.15
+  random_seed: 42
+  stratify_by: ["label", "generator"]
+
+generators:
+  real:
+    - name: "real_imagenet"
+      source: "ImageNet-1K (ILSVRC) Nature Photography"
+      type: "real"
+  synthetic:
+    - name: "adm"
+      full_name: "Ablated Diffusion Model (ADM)"
+      paper: "Diffusion Models Beat GANs on Image Synthesis (Dhariwal and Nichol, NeurIPS 2021)"
+      type: "diffusion"
+    - name: "stable_diffusion_v1_5"
+      full_name: "Stable Diffusion v1.5"
+      developer: "Runway ML / Stability AI"
+      type: "latent_diffusion"
+    - name: "wukong"
+      full_name: "Wukong Diffusion Model"
+      developer: "Huawei Noah's Ark Lab"
+      type: "large_scale_diffusion"

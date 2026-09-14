@@ -1,0 +1,30 @@
+{
+  "image_name": "synthetic_wukong_0_wukong_image8.png",
+  "image_path": "data\\splits\\test\\synthetic\\synthetic_wukong_0_wukong_image8.png",
+  "original_dimensions": {
+    "width": 512,
+    "height": 512
+  },
+  "target_layer": "backbone.features[8] (Conv2dNormActivation)",
+  "predicted_class_id": 1,
+  "predicted_label": "AI-GENERATED (SYNTHETIC)",
+  "target_class_id": 1,
+  "target_label": "AI-GENERATED (SYNTHETIC)",
+  "confidence": 0.9296,
+  "confidence_percentage": "92.96%",
+  "probabilities": {
+    "real": 0.0704,
+    "synthetic": 0.9296
+  },
+  "logits": [
+    -1.357,
+    1.2239
+  ],
+  "visualization": {
+    "colormap": "jet",
+    "alpha": 0.5,
+    "heatmap_file": "synthetic_wukong_synthetic_wukong_0_wukong_image8_heatmap.png",
+    "overlay_file": "synthetic_wukong_synthetic_wukong_0_wukong_image8_overlay.png"
+  },
+  "interpretation_disclaimer": "Grad-CAM indicates regions that positively influenced the neural network's decision. It is a feature attribution method, not a ground-truth pixel-level forgery mask."
+}

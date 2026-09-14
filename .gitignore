@@ -1,0 +1,42 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyc
+*$py.class
+*.so
+.pytest_cache/
+
+# Large Raw Datasets (Do not commit large multi-gigabyte image directories)
+data/raw/
+data/processed/
+data/splits/
+data/debug_*
+
+# Keep small metadata and sample test examples
+!data/metadata/
+!data/examples/
+
+# Environments & Virtual Envs
+.env
+.env.*
+.venv/
+env/
+venv/
+ENV/
+
+# Node / Web build & dependencies
+node_modules/
+dist/
+build/
+
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+.vscode/
+.idea/
+
+# Scratch & Temporary experiment scripts
+scratch/
+.system_generated/

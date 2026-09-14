@@ -1,0 +1,422 @@
+{
+  "evaluation_timestamp": "2026-09-13T23:15:00Z",
+  "model_architecture": "EfficientNet-B0 (SignalScopeClassifier)",
+  "test_dataset_size": 865,
+  "generator_inventory": {
+    "dataset_name": "GenImage Benchmark Subset",
+    "total_images": 5764,
+    "available_generators": {
+      "real_imagenet": {
+        "total": 2842,
+        "train": 1989,
+        "val": 426,
+        "test": 427,
+        "status": "Train-known"
+      },
+      "stable_diffusion_v1_5": {
+        "total": 996,
+        "train": 697,
+        "val": 149,
+        "test": 150,
+        "status": "Train-known"
+      },
+      "adm": {
+        "total": 968,
+        "train": 678,
+        "val": 145,
+        "test": 145,
+        "status": "Train-known"
+      },
+      "wukong": {
+        "total": 958,
+        "train": 671,
+        "val": 144,
+        "test": 143,
+        "status": "Train-known"
+      }
+    },
+    "generators_used_during_training": [
+      "real_imagenet",
+      "stable_diffusion_v1_5",
+      "adm",
+      "wukong"
+    ],
+    "generators_available_for_independent_evaluation": [
+      "real_imagenet",
+      "stable_diffusion_v1_5",
+      "adm",
+      "wukong"
+    ],
+    "unseen_generator_statement": "Unseen-generator evaluation cannot currently be performed with the available dataset.",
+    "unseen_generator_rationale": "All three synthetic generators present in the current dataset subset (ADM, Stable Diffusion v1.5, Wukong) were partitioned into the training split (70% each) to maximize diversity for the baseline classifier. Because retraining or altering checkpoints is prohibited in this step, zero generators were held out as strictly unseen. To perform a rigorous zero-shot unseen-generator benchmark, an external evaluation set containing novel architectures (e.g., Midjourney v5/v6, DALL-E 3, Flux, StyleGAN3, or Commercial Inpainting engines) must be introduced."
+  },
+  "clean_baseline": {
+    "accuracy": 0.7295,
+    "roc_auc": 0.7996,
+    "macro_f1": 0.7287,
+    "macro_precision": 0.7308,
+    "macro_recall": 0.7289,
+    "synthetic_f1": 0.7429,
+    "real_f1": 0.7146,
+    "confusion_matrix": {
+      "tn": 293,
+      "fp": 134,
+      "fn": 100,
+      "tp": 338
+    }
+  },
+  "conditions": {
+    "clean": {
+      "name": "Clean Baseline",
+      "description": "Original uncorrupted test images directly from dataset",
+      "metrics": {
+        "accuracy": 0.7295,
+        "roc_auc": 0.7996,
+        "macro_f1": 0.7287,
+        "macro_precision": 0.7308,
+        "macro_recall": 0.7289,
+        "synthetic_f1": 0.7429,
+        "real_f1": 0.7146,
+        "confusion_matrix": {
+          "tn": 293,
+          "fp": 134,
+          "fn": 100,
+          "tp": 338
+        }
+      },
+      "generator_breakdown": {
+        "adm": {
+          "count": 145,
+          "correct": 89,
+          "accuracy": 0.6138
+        },
+        "real_imagenet": {
+          "count": 427,
+          "correct": 293,
+          "accuracy": 0.6862
+        },
+        "stable_diffusion_v1_5": {
+          "count": 150,
+          "correct": 130,
+          "accuracy": 0.8667
+        },
+        "wukong": {
+          "count": 143,
+          "correct": 119,
+          "accuracy": 0.8322
+        }
+      }
+    },
+    "jpeg_mild": {
+      "name": "JPEG Mild (Q=75)",
+      "description": "Standard web-level lossy compression at quality factor 75",
+      "metrics": {
+        "accuracy": 0.7306,
+        "roc_auc": 0.8007,
+        "macro_f1": 0.7281,
+        "macro_precision": 0.7373,
+        "macro_recall": 0.7295,
+        "synthetic_f1": 0.7545,
+        "real_f1": 0.7017,
+        "confusion_matrix": {
+          "tn": 274,
+          "fp": 153,
+          "fn": 80,
+          "tp": 358
+        }
+      },
+      "generator_breakdown": {
+        "adm": {
+          "count": 145,
+          "correct": 105,
+          "accuracy": 0.7241
+        },
+        "real_imagenet": {
+          "count": 427,
+          "correct": 274,
+          "accuracy": 0.6417
+        },
+        "stable_diffusion_v1_5": {
+          "count": 150,
+          "correct": 134,
+          "accuracy": 0.8933
+        },
+        "wukong": {
+          "count": 143,
+          "correct": 119,
+          "accuracy": 0.8322
+        }
+      }
+    },
+    "jpeg_strong": {
+      "name": "JPEG Strong (Q=50)",
+      "description": "Heavy social media / messaging re-compression at quality factor 50",
+      "metrics": {
+        "accuracy": 0.6983,
+        "roc_auc": 0.7772,
+        "macro_f1": 0.6935,
+        "macro_precision": 0.7085,
+        "macro_recall": 0.6968,
+        "synthetic_f1": 0.7318,
+        "real_f1": 0.6552,
+        "confusion_matrix": {
+          "tn": 248,
+          "fp": 179,
+          "fn": 82,
+          "tp": 356
+        }
+      },
+      "generator_breakdown": {
+        "adm": {
+          "count": 145,
+          "correct": 102,
+          "accuracy": 0.7034
+        },
+        "real_imagenet": {
+          "count": 427,
+          "correct": 248,
+          "accuracy": 0.5808
+        },
+        "stable_diffusion_v1_5": {
+          "count": 150,
+          "correct": 134,
+          "accuracy": 0.8933
+        },
+        "wukong": {
+          "count": 143,
+          "correct": 120,
+          "accuracy": 0.8392
+        }
+      }
+    },
+    "resized": {
+      "name": "Resized (50% Down & Up)",
+      "description": "50% spatial downscaling followed by bilinear upsampling restoration",
+      "metrics": {
+        "accuracy": 0.704,
+        "roc_auc": 0.8076,
+        "macro_f1": 0.6932,
+        "macro_precision": 0.7326,
+        "macro_recall": 0.7018,
+        "synthetic_f1": 0.751,
+        "real_f1": 0.6353,
+        "confusion_matrix": {
+          "tn": 223,
+          "fp": 204,
+          "fn": 52,
+          "tp": 386
+        }
+      },
+      "generator_breakdown": {
+        "adm": {
+          "count": 145,
+          "correct": 121,
+          "accuracy": 0.8345
+        },
+        "real_imagenet": {
+          "count": 427,
+          "correct": 223,
+          "accuracy": 0.5222
+        },
+        "stable_diffusion_v1_5": {
+          "count": 150,
+          "correct": 138,
+          "accuracy": 0.92
+        },
+        "wukong": {
+          "count": 143,
+          "correct": 127,
+          "accuracy": 0.8881
+        }
+      }
+    },
+    "screenshot": {
+      "name": "Screenshot-like",
+      "description": "92% rescale, 4px dark neutral border framing, and JPEG re-encoding at Q=65",
+      "metrics": {
+        "accuracy": 0.6855,
+        "roc_auc": 0.7569,
+        "macro_f1": 0.681,
+        "macro_precision": 0.694,
+        "macro_recall": 0.6841,
+        "synthetic_f1": 0.719,
+        "real_f1": 0.643,
+        "confusion_matrix": {
+          "tn": 245,
+          "fp": 182,
+          "fn": 90,
+          "tp": 348
+        }
+      },
+      "generator_breakdown": {
+        "adm": {
+          "count": 145,
+          "correct": 95,
+          "accuracy": 0.6552
+        },
+        "real_imagenet": {
+          "count": 427,
+          "correct": 245,
+          "accuracy": 0.5738
+        },
+        "stable_diffusion_v1_5": {
+          "count": 150,
+          "correct": 131,
+          "accuracy": 0.8733
+        },
+        "wukong": {
+          "count": 143,
+          "correct": 122,
+          "accuracy": 0.8531
+        }
+      }
+    },
+    "brightness": {
+      "name": "Brightness (+10%)",
+      "description": "Slight overexposure / screen gamma shift (+10% luminance)",
+      "metrics": {
+        "accuracy": 0.7214,
+        "roc_auc": 0.7995,
+        "macro_f1": 0.7205,
+        "macro_precision": 0.7229,
+        "macro_recall": 0.7208,
+        "synthetic_f1": 0.736,
+        "real_f1": 0.705,
+        "confusion_matrix": {
+          "tn": 288,
+          "fp": 139,
+          "fn": 102,
+          "tp": 336
+        }
+      },
+      "generator_breakdown": {
+        "adm": {
+          "count": 145,
+          "correct": 85,
+          "accuracy": 0.5862
+        },
+        "real_imagenet": {
+          "count": 427,
+          "correct": 288,
+          "accuracy": 0.6745
+        },
+        "stable_diffusion_v1_5": {
+          "count": 150,
+          "correct": 131,
+          "accuracy": 0.8733
+        },
+        "wukong": {
+          "count": 143,
+          "correct": 120,
+          "accuracy": 0.8392
+        }
+      }
+    },
+    "contrast": {
+      "name": "Contrast (+15%)",
+      "description": "Dynamic range expansion (+15% contrast enhancement)",
+      "metrics": {
+        "accuracy": 0.7225,
+        "roc_auc": 0.7997,
+        "macro_f1": 0.7217,
+        "macro_precision": 0.724,
+        "macro_recall": 0.722,
+        "synthetic_f1": 0.7368,
+        "real_f1": 0.7066,
+        "confusion_matrix": {
+          "tn": 289,
+          "fp": 138,
+          "fn": 102,
+          "tp": 336
+        }
+      },
+      "generator_breakdown": {
+        "adm": {
+          "count": 145,
+          "correct": 86,
+          "accuracy": 0.5931
+        },
+        "real_imagenet": {
+          "count": 427,
+          "correct": 289,
+          "accuracy": 0.6768
+        },
+        "stable_diffusion_v1_5": {
+          "count": 150,
+          "correct": 130,
+          "accuracy": 0.8667
+        },
+        "wukong": {
+          "count": 143,
+          "correct": 120,
+          "accuracy": 0.8392
+        }
+      }
+    }
+  },
+  "degradation_analysis": {
+    "clean": {
+      "condition": "Clean Baseline",
+      "accuracy_drop": 0.0,
+      "macro_f1_drop": 0.0,
+      "roc_auc_drop": 0.0,
+      "macro_precision_drop": 0.0,
+      "macro_recall_drop": 0.0,
+      "relative_auc_drop_percent": 0.0
+    },
+    "jpeg_mild": {
+      "condition": "JPEG Mild (Q=75)",
+      "accuracy_drop": -0.0011,
+      "macro_f1_drop": 0.0006,
+      "roc_auc_drop": -0.0011,
+      "macro_precision_drop": -0.0065,
+      "macro_recall_drop": -0.0006,
+      "relative_auc_drop_percent": -0.14
+    },
+    "jpeg_strong": {
+      "condition": "JPEG Strong (Q=50)",
+      "accuracy_drop": 0.0312,
+      "macro_f1_drop": 0.0352,
+      "roc_auc_drop": 0.0224,
+      "macro_precision_drop": 0.0223,
+      "macro_recall_drop": 0.0321,
+      "relative_auc_drop_percent": 2.8
+    },
+    "resized": {
+      "condition": "Resized (50% Down & Up)",
+      "accuracy_drop": 0.0255,
+      "macro_f1_drop": 0.0355,
+      "roc_auc_drop": -0.008,
+      "macro_precision_drop": -0.0018,
+      "macro_recall_drop": 0.0271,
+      "relative_auc_drop_percent": -1.0
+    },
+    "screenshot": {
+      "condition": "Screenshot-like",
+      "accuracy_drop": 0.044,
+      "macro_f1_drop": 0.0477,
+      "roc_auc_drop": 0.0427,
+      "macro_precision_drop": 0.0368,
+      "macro_recall_drop": 0.0448,
+      "relative_auc_drop_percent": 5.34
+    },
+    "brightness": {
+      "condition": "Brightness (+10%)",
+      "accuracy_drop": 0.0081,
+      "macro_f1_drop": 0.0082,
+      "roc_auc_drop": 0.0001,
+      "macro_precision_drop": 0.0079,
+      "macro_recall_drop": 0.0081,
+      "relative_auc_drop_percent": 0.01
+    },
+    "contrast": {
+      "condition": "Contrast (+15%)",
+      "accuracy_drop": 0.007,
+      "macro_f1_drop": 0.007,
+      "roc_auc_drop": -0.0001,
+      "macro_precision_drop": 0.0068,
+      "macro_recall_drop": 0.0069,
+      "relative_auc_drop_percent": -0.01
+    }
+  }
+}

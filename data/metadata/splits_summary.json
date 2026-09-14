@@ -1,0 +1,51 @@
+{
+  "dataset_name": "GenImage Benchmark Subset",
+  "total_images": 5764,
+  "class_counts": {
+    "synthetic": 2922,
+    "real": 2842
+  },
+  "generator_counts": {
+    "real_imagenet": 2842,
+    "stable_diffusion_v1_5": 996,
+    "adm": 968,
+    "wukong": 958
+  },
+  "split_counts": {
+    "train": 4035,
+    "test": 865,
+    "validation": 864
+  },
+  "detailed_breakdown": {
+    "test": {
+      "real": {
+        "real_imagenet": 427
+      },
+      "synthetic": {
+        "adm": 145,
+        "stable_diffusion_v1_5": 150,
+        "wukong": 143
+      }
+    },
+    "train": {
+      "real": {
+        "real_imagenet": 1989
+      },
+      "synthetic": {
+        "adm": 678,
+        "stable_diffusion_v1_5": 697,
+        "wukong": 671
+      }
+    },
+    "validation": {
+      "real": {
+        "real_imagenet": 426
+      },
+      "synthetic": {
+        "adm": 145,
+        "stable_diffusion_v1_5": 149,
+        "wukong": 144
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "dataset": "SignalScope Development Test Set",
+  "total_test_samples": 865,
+  "overall_metrics": {
+    "accuracy": 0.7295,
+    "roc_auc": 0.7996,
+    "macro_f1": 0.7287,
+    "macro_precision": 0.7308,
+    "macro_recall": 0.7289,
+    "synthetic_f1": 0.7429,
+    "real_f1": 0.7146,
+    "confusion_matrix": {
+      "tn": 293,
+      "fp": 134,
+      "fn": 100,
+      "tp": 338
+    }
+  },
+  "generator_breakdown": {
+    "adm": {
+      "count": 145,
+      "accuracy": 0.6138
+    },
+    "real_imagenet": {
+      "count": 427,
+      "accuracy": 0.6862
+    },
+    "stable_diffusion_v1_5": {
+      "count": 150,
+      "accuracy": 0.8667
+    },
+    "wukong": {
+      "count": 143,
+      "accuracy": 0.8322
+    }
+  }
+}

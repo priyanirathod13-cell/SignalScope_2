@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SignalScope | AI Image Detection & Explainability</title>
+  <meta name="description" content="Telling Real From Synthetic in the Age of Generative Media. Real-time AI authenticity detection and Grad-CAM visual interpretability.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient Glows & Cyber Grid -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="cyber-grid"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="#" class="brand-logo">
+        <div class="logo-icon-wrapper">
+          <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M4.93 4.93a10 10 0 0 1 14.14 0"></path>
+            <path d="M7.76 7.76a6 6 0 0 1 8.48 0"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+            <path d="M16.24 7.76a6 6 0 0 1 0 8.48"></path>
+          </svg>
+          <span class="logo-pulse"></span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">SignalScope</span>
+          <span class="brand-subtitle">AI Image Detection & Explainability</span>
+        </div>
+      </a>
+
+      <div class="system-status-badge">
+        <span class="status-dot"></span>
+        <span class="status-label" id="systemStatusLabel">Model Online • EfficientNet-B0</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+    
+    <!-- Hero Header -->
+    <section class="hero-section" id="hero">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        <span>Generative Media Forensics</span>
+      </div>
+      <h1 class="hero-title">Is this image <span class="highlight-real">real</span> or <span class="highlight-ai">AI-generated</span>?</h1>
+      <p class="hero-subtitle">
+        Upload any photograph or synthetic artwork to detect diffusion signatures and inspect convolutional Grad-CAM visual attributions in real time.
+      </p>
+    </section>
+
+    <!-- Error Toast Notification -->
+    <div id="errorToast" class="error-toast" style="display: none;">
+      <div class="error-icon">⚠️</div>
+      <div class="error-content">
+        <h4 class="error-heading">Validation Error</h4>
+        <p id="errorMessage" class="error-message">Unsupported file format.</p>
+      </div>
+      <button type="button" class="error-close-btn" id="errorCloseBtn">&times;</button>
+    </div>
+
+    <!-- Application Workspace Grid -->
+    <section class="app-workspace">
+
+      <!-- 1. Upload View -->
+      <div id="uploadCard" class="glass-card upload-card">
+        <div class="drop-zone" id="dropZone">
+          <input type="file" id="fileInput" accept=".jpg,.jpeg,.png,.webp" class="file-input-hidden">
+          
+          <div class="drop-icon-wrap">
+            <svg viewBox="0 0 24 24" width="36" height="36" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+          </div>
+
+          <h3 class="drop-title">Drag & drop image here</h3>
+          <p class="drop-subtitle">or click to browse from your device</p>
+          
+          <button type="button" class="btn btn-primary" id="browseBtn">Choose Image</button>
+
+          <div class="drop-hints">
+            <span>Supported formats: <strong>JPG, JPEG, PNG, WEBP</strong></span>
+            <span>•</span>
+            <span>Max file size: <strong>15 MB</strong></span>
+          </div>
+        </div>
+
+        <!-- Preloaded Example Samples Gallery -->
+        <div class="examples-container">
+          <div class="examples-header">
+            <span class="examples-lead">Or test with verified forensic samples:</span>
+          </div>
+          <div class="examples-grid" id="examplesGrid">
+            <!-- Populated via JavaScript -->
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Image Selected / Pre-Analysis Preview Card -->
+      <div id="previewCard" class="glass-card preview-card" style="display: none;">
+        <div class="preview-header">
+          <div class="section-title-wrap">
+            <span class="badge-mini">STAGE 1</span>
+            <h3 class="card-title">Image Ready for Inspection</h3>
+          </div>
+          <button type="button" class="btn btn-ghost" id="removeBtn">Cancel</button>
+        </div>
+
+        <div class="preview-body">
+          <div class="preview-image-wrap">
+            <img id="previewImg" src="" alt="Selected Target">
+          </div>
+          
+          <div class="preview-info-panel">
+            <div class="meta-row">
+              <span class="meta-label">File Name:</span>
+              <span class="meta-val font-mono" id="fileName">-</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Resolution:</span>
+              <span class="meta-val font-mono" id="fileDimensions">-</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">File Size:</span>
+              <span class="meta-val font-mono" id="fileSize">-</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Model Pipeline:</span>
+              <span class="meta-val font-mono text-cyan">SignalScope EfficientNet-B0</span>
+            </div>
+
+            <div class="preview-actions">
+              <button type="button" class="btn btn-primary btn-large btn-glow" id="analyzeBtn">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <span>Run Authentic Detection</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Loading State Card -->
+      <div id="loadingCard" class="glass-card loading-card" style="display: none;">
+        <div class="scanner-anim">
+          <div class="scanner-radar"></div>
+          <div class="scanner-pulse"></div>
+        </div>
+        <h3 class="loading-title" id="loadingTitle">Analyzing image...</h3>
+        <p class="loading-subtitle" id="loadingSubtitle">Extracting convolutional feature activations and backpropagating gradients</p>
+
+        <div class="scanning-steps-list">
+          <div class="scan-step active" id="step1">
+            <span class="step-dot"></span>
+            <span class="step-text">Image verification & normalization (224x224)</span>
+          </div>
+          <div class="scan-step" id="step2">
+            <span class="step-dot"></span>
+            <span class="step-text">Convolutional forward inference (EfficientNet-B0)</span>
+          </div>
+          <div class="scan-step" id="step3">
+            <span class="step-dot"></span>
+            <span class="step-text">Grad-CAM spatial gradient attribution (features[8])</span>
+          </div>
+          <div class="scan-step" id="step4">
+            <span class="step-dot"></span>
+            <span class="step-text">Rendering forensic overlay & confidence assessment</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Result Dashboard -->
+      <div id="resultDashboard" class="result-dashboard" style="display: none;">
+        
+        <!-- Top Toolbar -->
+        <div class="dashboard-top-bar">
+          <div class="section-title-wrap">
+            <span class="badge-mini">DETECTION OUTPUT</span>
+            <h2 class="section-title">Analysis Result</h2>
+          </div>
+          <button type="button" class="btn btn-outline" id="newAnalysisBtn">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2">
+              <polyline points="1 4 1 10 7 10"></polyline>
+              <polyline points="23 20 23 14 17 14"></polyline>
+              <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+            </svg>
+            <span>Analyze Another Image</span>
+          </button>
+        </div>
+
+        <!-- Main Verdict Card -->
+        <div class="glass-card verdict-card" id="verdictCard">
+          <div class="verdict-header">
+            <span class="verdict-header-label">VERDICT ASSESSMENT</span>
+            <div class="verdict-status-pill" id="verdictStatusPill">
+              <span class="verdict-dot" id="verdictDot"></span>
+              <span id="verdictPillText">VERIFIED</span>
+            </div>
+          </div>
+
+          <div class="verdict-headline-row">
+            <div class="verdict-symbol" id="verdictSymbol">◉</div>
+            <div class="verdict-title-wrap">
+              <h3 class="verdict-title" id="verdictTitle">AI-GENERATED</h3>
+              <p class="verdict-summary" id="verdictSummary">Visual feature gradients exhibit strong alignment with generative diffusion artifacts.</p>
+            </div>
+            <div class="verdict-score-box">
+              <span class="score-label">Confidence</span>
+              <span class="score-number font-mono" id="verdictScore">88.8%</span>
+            </div>
+          </div>
+
+          <!-- Horizontal Probability Visualization -->
+          <div class="probability-block">
+            <div class="prob-row">
+              <div class="prob-header">
+                <span class="prob-name">AI-Generated Probability</span>
+                <span class="prob-value font-mono" id="aiProbText">88.8%</span>
+              </div>
+              <div class="prob-track">
+                <div class="prob-fill fill-ai" id="aiProbBar" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <div class="prob-row">
+              <div class="prob-header">
+                <span class="prob-name">Real Photography Probability</span>
+                <span class="prob-value font-mono" id="realProbText">11.2%</span>
+              </div>
+              <div class="prob-track">
+                <div class="prob-fill fill-real" id="realProbBar" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technical Metadata Chips -->
+          <div class="technical-chips-row">
+            <div class="tech-chip">
+              <span class="chip-k">Model:</span>
+              <span class="chip-v font-mono" id="techModel">EfficientNet-B0</span>
+            </div>
+            <div class="tech-chip">
+              <span class="chip-k">Inference Latency:</span>
+              <span class="chip-v font-mono" id="techLatency">184 ms</span>
+            </div>
+            <div class="tech-chip">
+              <span class="chip-k">Resolution:</span>
+              <span class="chip-v font-mono" id="techDimensions">500 x 375</span>
+            </div>
+            <div class="tech-chip">
+              <span class="chip-k">Target Layer:</span>
+              <span class="chip-v font-mono" id="techLayer">backbone.features[8]</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Forensic Explanation Section -->
+        <div class="glass-card explanation-master-card">
+          <div class="card-header-between">
+            <div>
+              <span class="badge-mini">EXPLAINABILITY</span>
+              <h3 class="card-title">Grad-CAM Visual Attribution</h3>
+              <p class="card-subtitle">Visual regions that contributed most strongly to the model's prediction</p>
+            </div>
+
+            <!-- View Mode Switcher Tabs -->
+            <div class="view-tabs" id="viewTabs">
+              <button type="button" class="view-tab active" data-mode="overlay">Overlay</button>
+              <button type="button" class="view-tab" data-mode="heatmap">Pure Heatmap</button>
+              <button type="button" class="view-tab" data-mode="original">Original Image</button>
+              <button type="button" class="view-tab" data-mode="split">Side-by-Side</button>
+            </div>
+          </div>
+
+          <!-- Transparency Slider (active in overlay mode) -->
+          <div class="slider-toolbar" id="sliderToolbar">
+            <span class="slider-label">Overlay Transparency:</span>
+            <input type="range" id="opacitySlider" min="0" max="100" value="50" class="range-slider">
+            <span class="slider-value font-mono" id="opacityValue">50%</span>
+          </div>
+
+          <!-- Image Stage -->
+          <div class="image-stage" id="imageStage">
+            <!-- Single Mode View -->
+            <div class="single-view-container" id="singleViewContainer">
+              <img id="baseImage" src="" alt="Analyzed Target">
+              <img id="overlayImage" src="" alt="Heatmap Overlay" class="overlay-layer">
+            </div>
+
+            <!-- Split Mode View -->
+            <div class="split-view-container" id="splitViewContainer" style="display: none;">
+              <div class="split-pane">
+                <span class="pane-tag">Original Image</span>
+                <img id="splitOriginal" src="" alt="Original">
+              </div>
+              <div class="split-pane">
+                <span class="pane-tag">Pure Heatmap</span>
+                <img id="splitHeatmap" src="" alt="Heatmap">
+              </div>
+              <div class="split-pane">
+                <span class="pane-tag">Overlay</span>
+                <img id="splitOverlay" src="" alt="Overlay">
+              </div>
+            </div>
+          </div>
+
+          <!-- Responsible Explainability Note -->
+          <div class="explanation-note-card">
+            <div class="note-icon">ℹ️</div>
+            <div class="note-content">
+              <h4 class="note-title">Interpretability Guidelines</h4>
+              <p class="note-text" id="responsibleText">
+                The heatmap highlights image regions that contributed strongly to the model's prediction. It is an interpretability aid, not proof that those exact pixels are synthetic.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- Responsible AI Section -->
+      <section class="responsible-section glass-card">
+        <div class="responsible-header">
+          <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" fill="none" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <h3>Responsible AI & Forensic Verification Notice</h3>
+        </div>
+        <p class="responsible-desc">
+          SignalScope provides a model-based estimate, not definitive proof of image origin. Detection scores should be interpreted as probabilistic evidence alongside frequency-domain analysis (DCT/FFT), compression artifacts, and cryptographic provenance standards (C2PA).
+        </p>
+      </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <span class="footer-copy">SignalScope Forensic Engine • Generative Media Forensics</span>
+      <span class="footer-links">
+        <a href="#hero" id="backToTopBtn">Back to top</a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

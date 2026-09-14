@@ -1,0 +1,30 @@
+{
+  "image_name": "real_imagenet_adm_n01491361_11372.JPEG",
+  "image_path": "data\\splits\\test\\real\\real_imagenet_adm_n01491361_11372.JPEG",
+  "original_dimensions": {
+    "width": 500,
+    "height": 333
+  },
+  "target_layer": "backbone.features[8] (Conv2dNormActivation)",
+  "predicted_class_id": 1,
+  "predicted_label": "AI-GENERATED (SYNTHETIC)",
+  "target_class_id": 1,
+  "target_label": "AI-GENERATED (SYNTHETIC)",
+  "confidence": 0.5313,
+  "confidence_percentage": "53.13%",
+  "probabilities": {
+    "real": 0.4687,
+    "synthetic": 0.5313
+  },
+  "logits": [
+    -0.1812,
+    -0.0557
+  ],
+  "visualization": {
+    "colormap": "jet",
+    "alpha": 0.5,
+    "heatmap_file": "test_real_real_imagenet_adm_n01491361_11372_heatmap.png",
+    "overlay_file": "test_real_real_imagenet_adm_n01491361_11372_overlay.png"
+  },
+  "interpretation_disclaimer": "Grad-CAM indicates regions that positively influenced the neural network's decision. It is a feature attribution method, not a ground-truth pixel-level forgery mask."
+}

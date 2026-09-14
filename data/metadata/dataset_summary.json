@@ -1,0 +1,56 @@
+{
+  "total_images": 5764,
+  "real_count": 2842,
+  "synthetic_count": 2922,
+  "train_count": 4035,
+  "validation_count": 864,
+  "test_count": 865,
+  "generator_counts": {
+    "real_imagenet": 2842,
+    "stable_diffusion_v1_5": 996,
+    "adm": 968,
+    "wukong": 958
+  },
+  "source_dataset_counts": {
+    "ImageNet-1K": 2842,
+    "GenImage-SD15": 996,
+    "GenImage-ADM": 968,
+    "GenImage-Wukong": 958
+  },
+  "corrupted_image_count": 0,
+  "duplicate_count": 0,
+  "image_format_counts": {
+    "PNG": 2922,
+    "JPEG": 2842
+  },
+  "resolution_statistics": {
+    "min_width": 50,
+    "max_width": 3648,
+    "mean_width": 451.34,
+    "min_height": 48,
+    "max_height": 3200,
+    "mean_height": 418.0,
+    "common_resolutions": {
+      "512x512": 1953,
+      "256x256": 978,
+      "500x375": 681,
+      "500x333": 261,
+      "375x500": 202
+    }
+  },
+  "split_matrix": {
+    "train": {
+      "real": 1989,
+      "synthetic": 2046
+    },
+    "validation": {
+      "real": 426,
+      "synthetic": 438
+    },
+    "test": {
+      "real": 427,
+      "synthetic": 438
+    }
+  },
+  "ready_for_model_training": true
+}
