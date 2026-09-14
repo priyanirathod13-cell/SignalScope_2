@@ -1,0 +1,3 @@
+dataset_name,source_url,license,paper,total_images,real_count,synthetic_count
+GenImage,https://huggingface.co/datasets/jhutter2/281_Genimage,MIT (Subset) / CC-BY-NC-SA 4.0 (Original Benchmark),GenImage: A Million-Scale Dataset for Detecting AI-Generated Image (NeurIPS 2023),5764,2842,2922
+CIFAKE,https://huggingface.co/datasets/dragonintelligence/CIFAKE-image-dataset,CC-BY 4.0 / Apache-2.0,"CIFAKE: Image Classification and Explainable Identification of AI-Generated Synthetic Images (Bird & Lotfi, 2023)",15979,8000,7979

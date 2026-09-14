@@ -1,0 +1,106 @@
+{
+  "samples": [
+    {
+      "file": "example_1_real_nature.jpg",
+      "expected": "REAL",
+      "predicted": "REAL",
+      "confidence": "100.0%",
+      "correct": true,
+      "faithfulness": "DIFFUSE_OR_NON_CAUSAL",
+      "delta_p": -0.0,
+      "latency_ms": 275.3
+    },
+    {
+      "file": "example_2_stable_diffusion.png",
+      "expected": "AI-GENERATED",
+      "predicted": "AI-GENERATED",
+      "confidence": "97.2%",
+      "correct": true,
+      "faithfulness": "PARTIALLY_FAITHFUL",
+      "delta_p": 0.0695,
+      "latency_ms": 185.9
+    },
+    {
+      "file": "example_3_wukong_diffusion.png",
+      "expected": "AI-GENERATED",
+      "predicted": "AI-GENERATED",
+      "confidence": "51.4%",
+      "correct": true,
+      "faithfulness": "PARTIALLY_FAITHFUL",
+      "delta_p": 0.1474,
+      "latency_ms": 177.8
+    },
+    {
+      "file": "example_4_adm_diffusion.png",
+      "expected": "AI-GENERATED",
+      "predicted": "AI-GENERATED",
+      "confidence": "99.6%",
+      "correct": true,
+      "faithfulness": "DIFFUSE_OR_NON_CAUSAL",
+      "delta_p": 0.0481,
+      "latency_ms": 132.5
+    },
+    {
+      "file": "example_5_diagnostic_sky.jpeg",
+      "expected": "AI-GENERATED",
+      "predicted": "REAL",
+      "confidence": "100.0%",
+      "correct": false,
+      "faithfulness": "DIFFUSE_OR_NON_CAUSAL",
+      "delta_p": -0.0,
+      "latency_ms": 192.5
+    },
+    {
+      "file": "real_astro_night_sky_0011.jpg",
+      "expected": "REAL",
+      "predicted": "REAL",
+      "confidence": "100.0%",
+      "correct": true,
+      "faithfulness": "PARTIALLY_FAITHFUL",
+      "delta_p": 0.0958,
+      "latency_ms": 174.3
+    },
+    {
+      "file": "real_astro_night_sky_0017.jpg",
+      "expected": "REAL",
+      "predicted": "REAL",
+      "confidence": "100.0%",
+      "correct": true,
+      "faithfulness": "PARTIALLY_FAITHFUL",
+      "delta_p": 0.0958,
+      "latency_ms": 167.0
+    },
+    {
+      "file": "synth_cosmic_fantasy_0005.png",
+      "expected": "AI-GENERATED",
+      "predicted": "AI-GENERATED",
+      "confidence": "100.0%",
+      "correct": true,
+      "faithfulness": "FAITHFUL",
+      "delta_p": 0.8927,
+      "latency_ms": 131.7
+    },
+    {
+      "file": "synth_cosmic_fantasy_0010.png",
+      "expected": "AI-GENERATED",
+      "predicted": "AI-GENERATED",
+      "confidence": "100.0%",
+      "correct": true,
+      "faithfulness": "DIFFUSE_OR_NON_CAUSAL",
+      "delta_p": 0.0243,
+      "latency_ms": 131.0
+    },
+    {
+      "file": "synth_cosmic_fantasy_0021.png",
+      "expected": "AI-GENERATED",
+      "predicted": "AI-GENERATED",
+      "confidence": "100.0%",
+      "correct": true,
+      "faithfulness": "PARTIALLY_FAITHFUL",
+      "delta_p": 0.1009,
+      "latency_ms": 133.0
+    }
+  ],
+  "mean_latency_ms": 170.1,
+  "accuracy": 0.9
+}

@@ -1,11 +1,17 @@
 """
-SignalScope Backend Inference & Explainability Service
-Safely loads the trained EfficientNet-B0 model and provides real-time
-classification, Grad-CAM heatmap generation, and base64 artifact encoding.
+SignalScope V3 Backend Inference & Forensic Explainability Service
+Safely loads the trained SignalScope V3 EfficientNet-B0 model and provides real-time:
+  - Letterboxed aspect-ratio preserving inference
+  - Temperature-calibrated confidence intervals
+  - Grad-CAM convolutional spatial attribution
+  - Controlled peak-evidence occlusion test (faithfulness verification)
+  - Plain-English forensic rationale ("Why SignalScope Thinks This")
+  - Base64 visualization artifact encoding
 """
 
 import base64
 import io
+import json
 import time
 from pathlib import Path
 from typing import Dict, Any, Optional
@@ -15,39 +21,79 @@ from PIL import Image
 import torch
 import torch.nn.functional as F
 
-from src.explainability.colormap import apply_colormap, overlay_heatmap
-from src.explainability.gradcam import GradCAM, load_detector_model
-from src.training.dataset import get_transforms
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
+from src.models import build_model
+from src.explainability.evidence_test import run_evidence_test
+from src.explainability.colormap import apply_colormap, overlay_heatmap
+from src.training.dataset import LetterboxTransform
 
 MAX_FILE_SIZE_BYTES = 15 * 1024 * 1024  # 15 MB
 ALLOWED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
-ALLOWED_MIME_TYPES = {"image/jpeg", "image/png", "image/webp"}
-
 
 class DetectionService:
     """
-    Singleton service holding the preloaded SignalScope classifier
-    and performing validated forward inference and Grad-CAM explainability.
+    Singleton service holding the preloaded SignalScope V3 classifier
+    and performing validated forward inference and explainability.
     """
     def __init__(
         self,
-        model_path: str = "models/baseline/best_model.pt",
-        config_path: str = "config/train_config.json"
+        model_path: Optional[str] = None,
+        config_path: Optional[str] = None
     ):
-        self.model_path = Path(model_path)
-        self.config_path = Path(config_path)
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        # Default priority: V3 -> V2 -> V1
+        if model_path is None:
+            v3_model = PROJECT_ROOT / "models" / "v3_final_candidate" / "best_model.pt"
+            v2_model = PROJECT_ROOT / "models" / "v2_expanded_data" / "best_model.pt"
+            v1_model = PROJECT_ROOT / "models" / "v1_baseline" / "best_model.pt"
+            if v3_model.exists():
+                self.model_path = v3_model
+                self.config_path = PROJECT_ROOT / "config" / "v3_train_config.json"
+                self.version = "V3"
+            elif v2_model.exists():
+                self.model_path = v2_model
+                self.config_path = PROJECT_ROOT / "config" / "v2_train_config.json"
+                self.version = "V2"
+            else:
+                self.model_path = v1_model
+                self.config_path = PROJECT_ROOT / "config" / "train_config.json"
+                self.version = "V1"
+        else:
+            self.model_path = Path(model_path)
+            self.config_path = Path(config_path) if config_path else PROJECT_ROOT / "config" / "v3_train_config.json"
+            self.version = "V3"
 
-        print(f"[Service] Initializing SignalScope detector on {self.device}...")
-        self.model, self.cfg, self.device = load_detector_model(
-            model_path=self.model_path,
-            config_path=self.config_path,
-            device=self.device
-        )
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        print(f"[Service] Initializing SignalScope {self.version} detector on {self.device} from {self.model_path}...")
+
+        # Load config
+        with open(self.config_path, "r", encoding="utf-8") as f:
+            self.cfg = json.load(f)
+
+        # Build & load model
+        self.model = build_model(self.cfg).to(self.device)
+        if self.model_path.exists():
+            ckpt = torch.load(self.model_path, map_location=self.device)
+            state_dict = ckpt["model_state_dict"] if "model_state_dict" in ckpt else ckpt
+            self.model.load_state_dict(state_dict)
+            print(f"[Service] Successfully loaded weights from {self.model_path}")
+        else:
+            print(f"[Service] Warning: Checkpoint {self.model_path} not found; using initialized model.")
+        self.model.eval()
+
         self.image_size = self.cfg.get("data", {}).get("image_size", 224)
-        _, self.val_transform = get_transforms(self.image_size)
-        print(f"[Service] Model loaded successfully! (Input resolution: {self.image_size}x{self.image_size})")
+
+        # Load temperature calibration if available
+        self.temperature = 1.0
+        calib_path = self.model_path.parent / "temperature_calibration.json"
+        if calib_path.exists():
+            try:
+                with open(calib_path, "r", encoding="utf-8") as cf:
+                    cal_data = json.load(cf)
+                    self.temperature = cal_data.get("optimal_temperature", 1.0)
+                print(f"[Service] Calibrated Temperature applied: T={self.temperature:.4f}")
+            except Exception as e:
+                print(f"[Service] Could not read temperature calibration: {e}")
 
     @staticmethod
     def _pil_to_base64(img: Image.Image, format: str = "PNG") -> str:
@@ -59,10 +105,6 @@ class DetectionService:
         return f"data:image/{format.lower()};base64,{encoded}"
 
     def validate_image_bytes(self, image_bytes: bytes, filename: str) -> Image.Image:
-        """
-        Validates uploaded image bytes against size limits and corrupt headers.
-        Returns verified RGB PIL Image.
-        """
         if not image_bytes:
             raise ValueError("Uploaded file is empty.")
 
@@ -75,12 +117,9 @@ class DetectionService:
             raise ValueError(f"Unsupported file format '{ext}'. Allowed formats: JPG, JPEG, PNG, WEBP.")
 
         try:
-            # First verify integrity without full decode
             stream = io.BytesIO(image_bytes)
             test_img = Image.open(stream)
             test_img.verify()
-
-            # Re-open for actual processing
             stream.seek(0)
             img = Image.open(stream).convert("RGB")
         except Exception as e:
@@ -100,44 +139,42 @@ class DetectionService:
         alpha: float = 0.5
     ) -> Dict[str, Any]:
         """
-        Performs end-to-end classification and Grad-CAM attribution.
+        Performs end-to-end V3 classification, evidence testing, and visualization rendering.
         """
         t_start = time.perf_counter()
 
-        # 1. Validate and decode
         img = self.validate_image_bytes(image_bytes, filename)
         orig_w, orig_h = img.size
 
-        # 2. Preprocess
-        input_tensor = self.val_transform(img).unsqueeze(0).to(self.device)
+        # Run explainability & causal occlusion evidence test
+        evidence_result = run_evidence_test(
+            model=self.model,
+            image_input=img,
+            device=self.device,
+            temperature=self.temperature
+        )
 
-        # 3. Forward pass & Grad-CAM attribution
-        with GradCAM(self.model, device=self.device) as gcam:
-            cam_res = gcam.generate(input_tensor)
-
-        pred_class = cam_res["pred_class"]
-        confidence = float(cam_res["confidence"])
+        pred_class = evidence_result["predicted_class"]
         label = "REAL" if pred_class == 0 else "AI-GENERATED"
-        prob_real = float(cam_res["probabilities"]["real"])
-        prob_synth = float(cam_res["probabilities"]["synthetic"])
+        confidence = evidence_result["confidence"]
+        prob_real = evidence_result["calibrated_probabilities"]["real"]
+        prob_synth = evidence_result["calibrated_probabilities"]["synthetic"]
 
-        # 4. Upsample CAM to original image dimensions using bilinear interpolation
-        cam_tensor = cam_res["cam_tensor"].unsqueeze(0).unsqueeze(0)
-        cam_upsampled = F.interpolate(
-            cam_tensor,
-            size=(orig_h, orig_w),
-            mode="bilinear",
-            align_corners=False
-        ).squeeze().cpu().numpy()
+        # Confidence band
+        if prob_synth >= 0.90 or prob_real >= 0.90:
+            confidence_band = "HIGH CONFIDENCE"
+            confidence_tier_desc = "Strong statistical evidence from multi-scale feature representations."
+        elif prob_synth >= 0.70 or prob_real >= 0.70:
+            confidence_band = "MODERATE CONFIDENCE"
+            confidence_tier_desc = "Noticeable forensic indicators present; inspection of evidence recommended."
+        else:
+            confidence_band = "BORDERLINE / INCONCLUSIVE"
+            confidence_tier_desc = "Ambiguous visual features near the decision boundary; manual forensic verification required."
 
-        # 5. Render heatmaps
-        heatmap_img = apply_colormap(cam_upsampled, colormap=colormap)
-        overlay_img = overlay_heatmap(img, heatmap_img, alpha=alpha)
-
-        # 6. Encode visualizations to base64 data URIs
+        # Convert images to base64
         orig_b64 = self._pil_to_base64(img)
-        heat_b64 = self._pil_to_base64(heatmap_img)
-        over_b64 = self._pil_to_base64(overlay_img)
+        over_b64 = self._pil_to_base64(evidence_result["overlay_image"])
+        heat_b64 = self._pil_to_base64(evidence_result["heatmap_image"])
 
         inference_time = round(time.perf_counter() - t_start, 3)
 
@@ -145,7 +182,9 @@ class DetectionService:
             "label": label,
             "confidence": round(confidence, 4),
             "confidence_percent": f"{confidence * 100.0:.1f}%",
-            "model": "EfficientNet-B0 (SignalScopeClassifier)",
+            "confidence_band": confidence_band,
+            "confidence_tier_description": confidence_tier_desc,
+            "model": f"SignalScope {self.version} EfficientNet-B0",
             "inference_time": inference_time,
             "image_width": orig_w,
             "image_height": orig_h,
@@ -154,21 +193,20 @@ class DetectionService:
                 "real": round(prob_real, 4),
                 "synthetic": round(prob_synth, 4)
             },
+            "evidence": evidence_result["evidence"],
+            "forensic_rationale": evidence_result["forensic_rationale"],
             "original_image": orig_b64,
             "heatmap_image": heat_b64,
             "overlay_image": over_b64,
-            "target_layer": cam_res["target_layer_name"],
+            "target_layer": evidence_result["evidence"]["target_layer"],
             "responsible_explanation": (
                 "The heatmap highlights image regions that contributed strongly to the model's prediction. "
-                "It is an interpretability aid, not proof that those exact pixels are synthetic."
+                "Causal occlusion verification tests whether removing these features alters the model's confidence."
             ),
             "disclaimer": "SignalScope provides a model-based estimate, not definitive proof of image origin."
         }
 
-
-# Global lazy-loaded singleton instance
 _detection_service: Optional[DetectionService] = None
-
 
 def get_detection_service() -> DetectionService:
     global _detection_service

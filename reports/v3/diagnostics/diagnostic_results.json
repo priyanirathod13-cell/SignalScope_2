@@ -1,0 +1,32 @@
+{
+  "file_name": "diagnostic_image.jpeg",
+  "original_dimensions": [
+    745,
+    373
+  ],
+  "format": "PNG",
+  "mode": "RGB",
+  "direct_model": {
+    "logits": {
+      "class_0_real": 0.16569256782531738,
+      "class_1_synthetic": -0.5510748028755188
+    },
+    "probabilities": {
+      "class_0_real": 0.6718947887420654,
+      "class_1_synthetic": 0.32810521125793457
+    },
+    "predicted_index": 0,
+    "predicted_label": "REAL",
+    "inference_time_ms": 41.89
+  },
+  "backend_service": {
+    "label": "REAL",
+    "confidence": 0.6719,
+    "probabilities": {
+      "real": 0.6719,
+      "synthetic": 0.3281
+    },
+    "total_latency_s": 0.294
+  },
+  "agreement": true
+}

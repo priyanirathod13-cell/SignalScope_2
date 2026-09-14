@@ -1,0 +1,134 @@
+[
+  {
+    "category": "Ordinary Real 1 (Gym Room)",
+    "filename": "WhatsApp Image 2026-09-15 at 02.08.20.jpeg",
+    "prediction": "REAL",
+    "confidence": "99.9%",
+    "prob_real": 99.86,
+    "prob_synth": 0.14,
+    "faithfulness": "DIFFUSE_OR_NON_CAUSAL",
+    "delta_p": 2.23,
+    "latency_s": 0.943
+  },
+  {
+    "category": "Ordinary Real 2 (Portrait Wall)",
+    "filename": "WhatsApp Image 2026-09-15 at 02.08.28.jpeg",
+    "prediction": "REAL",
+    "confidence": "100.0%",
+    "prob_real": 99.99,
+    "prob_synth": 0.01,
+    "faithfulness": "PARTIALLY_FAITHFUL",
+    "delta_p": 9.58,
+    "latency_s": 1.301
+  },
+  {
+    "category": "Ordinary Real 3 (Indoor Desk Study)",
+    "filename": "WhatsApp Image 2026-09-15 at 02.10.51.jpeg",
+    "prediction": "REAL",
+    "confidence": "86.6%",
+    "prob_real": 86.59,
+    "prob_synth": 13.41,
+    "faithfulness": "FAITHFUL",
+    "delta_p": 15.56,
+    "latency_s": 0.99
+  },
+  {
+    "category": "Unusual Real 1 (Sunset Over Water)",
+    "filename": "WhatsApp Image 2026-09-15 at 02.09.34.jpeg",
+    "prediction": "REAL",
+    "confidence": "99.7%",
+    "prob_real": 99.71,
+    "prob_synth": 0.29,
+    "faithfulness": "PARTIALLY_FAITHFUL",
+    "delta_p": 5.88,
+    "latency_s": 0.993
+  },
+  {
+    "category": "Unusual Real 2 (Nature / Stingray)",
+    "filename": "example_1_real_nature.jpg",
+    "prediction": "REAL",
+    "confidence": "100.0%",
+    "prob_real": 100.0,
+    "prob_synth": 0.0,
+    "faithfulness": "DIFFUSE_OR_NON_CAUSAL",
+    "delta_p": -0.0,
+    "latency_s": 0.487
+  },
+  {
+    "category": "Unusual Real 3 (Magazine Style Photo)",
+    "filename": "WhatsApp Image 2026-09-15 at 02.08.48.jpeg",
+    "prediction": "REAL",
+    "confidence": "100.0%",
+    "prob_real": 99.97,
+    "prob_synth": 0.03,
+    "faithfulness": "FAITHFUL",
+    "delta_p": 17.92,
+    "latency_s": 0.857
+  },
+  {
+    "category": "Real Night/Sky Image",
+    "filename": "real_astro_night_sky_0011.jpg",
+    "prediction": "REAL",
+    "confidence": "100.0%",
+    "prob_real": 99.99,
+    "prob_synth": 0.01,
+    "faithfulness": "PARTIALLY_FAITHFUL",
+    "delta_p": 9.58,
+    "latency_s": 0.617
+  },
+  {
+    "category": "Real Astrophotography Image",
+    "filename": "real_astro_night_sky_0000.jpg",
+    "prediction": "REAL",
+    "confidence": "100.0%",
+    "prob_real": 99.99,
+    "prob_synth": 0.01,
+    "faithfulness": "PARTIALLY_FAITHFUL",
+    "delta_p": 9.58,
+    "latency_s": 0.477
+  },
+  {
+    "category": "Synthetic 1 (Stable Diffusion v1.5)",
+    "filename": "example_2_stable_diffusion.png",
+    "prediction": "AI-GENERATED",
+    "confidence": "97.2%",
+    "prob_real": 2.79,
+    "prob_synth": 97.21,
+    "faithfulness": "PARTIALLY_FAITHFUL",
+    "delta_p": 6.95,
+    "latency_s": 0.513
+  },
+  {
+    "category": "Synthetic 2 (Wukong Diffusion)",
+    "filename": "example_3_wukong_diffusion.png",
+    "prediction": "AI-GENERATED",
+    "confidence": "51.4%",
+    "prob_real": 48.56,
+    "prob_synth": 51.44,
+    "faithfulness": "PARTIALLY_FAITHFUL",
+    "delta_p": 14.74,
+    "latency_s": 0.451
+  },
+  {
+    "category": "Synthetic 3 (ADM Diffusion)",
+    "filename": "example_4_adm_diffusion.png",
+    "prediction": "AI-GENERATED",
+    "confidence": "99.6%",
+    "prob_real": 0.38,
+    "prob_synth": 99.62,
+    "faithfulness": "DIFFUSE_OR_NON_CAUSAL",
+    "delta_p": 4.81,
+    "latency_s": 0.362
+  },
+  {
+    "category": "Original V2 Diagnostic Image",
+    "filename": "diagnostic_image.jpeg",
+    "prediction": "REAL",
+    "confidence": "100.0%",
+    "prob_real": 99.99,
+    "prob_synth": 0.01,
+    "faithfulness": "DIFFUSE_OR_NON_CAUSAL",
+    "delta_p": -0.0,
+    "latency_s": 0.506
+  }
+]

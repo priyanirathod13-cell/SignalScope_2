@@ -1,0 +1,7 @@
+generator,generator_family,label,label_str,count,dataset,percentage
+adm,pixel_diffusion,1,synthetic,968,GenImage,4.45
+real_cifar10,real_camera,0,real,8000,CIFAKE,36.79
+real_imagenet,real_camera,0,real,2842,GenImage,13.07
+stable_diffusion_v1_4,latent_diffusion,1,synthetic,7979,CIFAKE,36.7
+stable_diffusion_v1_5,latent_diffusion,1,synthetic,996,GenImage,4.58
+wukong,multilingual_diffusion,1,synthetic,958,GenImage,4.41

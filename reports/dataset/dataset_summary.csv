@@ -1,0 +1,2 @@
+total_images,real_count,synthetic_count,train_count,validation_count,test_count,datasets_used,generators,formats,corrupted_images,duplicate_count,leakage_free,official_sih_held_out_used
+21743,10842,10901,15220,3261,3262,"['CIFAKE', 'GenImage']","['real_cifar10', 'real_imagenet', 'adm', 'stable_diffusion_v1_4', 'stable_diffusion_v1_5', 'wukong']","{'JPEG': 18821, 'PNG': 2922}",0,0,True,False

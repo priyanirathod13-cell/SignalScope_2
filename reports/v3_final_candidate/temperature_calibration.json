@@ -1,0 +1,183 @@
+{
+  "version": "V3",
+  "validation_samples": 3161,
+  "optimal_temperature": 1.0195,
+  "uncalibrated_ece": 0.0065,
+  "calibrated_ece": 0.0051,
+  "ece_reduction": 0.0014,
+  "uncalibrated_bins": [
+    {
+      "bin": "0.0-0.1",
+      "count": 1450,
+      "accuracy": 0.011,
+      "confidence": 0.0089,
+      "error": 0.0022
+    },
+    {
+      "bin": "0.1-0.2",
+      "count": 78,
+      "accuracy": 0.1538,
+      "confidence": 0.1392,
+      "error": 0.0147
+    },
+    {
+      "bin": "0.2-0.3",
+      "count": 52,
+      "accuracy": 0.3269,
+      "confidence": 0.2435,
+      "error": 0.0834
+    },
+    {
+      "bin": "0.3-0.4",
+      "count": 28,
+      "accuracy": 0.25,
+      "confidence": 0.3444,
+      "error": 0.0944
+    },
+    {
+      "bin": "0.4-0.5",
+      "count": 33,
+      "accuracy": 0.3939,
+      "confidence": 0.4362,
+      "error": 0.0423
+    },
+    {
+      "bin": "0.5-0.6",
+      "count": 24,
+      "accuracy": 0.5,
+      "confidence": 0.5439,
+      "error": 0.0439
+    },
+    {
+      "bin": "0.6-0.7",
+      "count": 35,
+      "accuracy": 0.6857,
+      "confidence": 0.6523,
+      "error": 0.0335
+    },
+    {
+      "bin": "0.7-0.8",
+      "count": 66,
+      "accuracy": 0.7273,
+      "confidence": 0.7556,
+      "error": 0.0283
+    },
+    {
+      "bin": "0.8-0.9",
+      "count": 79,
+      "accuracy": 0.8354,
+      "confidence": 0.8531,
+      "error": 0.0176
+    },
+    {
+      "bin": "0.9-1.0",
+      "count": 1316,
+      "accuracy": 0.9863,
+      "confidence": 0.9882,
+      "error": 0.0019
+    }
+  ],
+  "calibrated_bins": [
+    {
+      "bin": "0.0-0.1",
+      "count": 1444,
+      "accuracy": 0.0111,
+      "confidence": 0.009,
+      "error": 0.002
+    },
+    {
+      "bin": "0.1-0.2",
+      "count": 82,
+      "accuracy": 0.1463,
+      "confidence": 0.1389,
+      "error": 0.0075
+    },
+    {
+      "bin": "0.2-0.3",
+      "count": 54,
+      "accuracy": 0.3148,
+      "confidence": 0.2458,
+      "error": 0.069
+    },
+    {
+      "bin": "0.3-0.4",
+      "count": 28,
+      "accuracy": 0.25,
+      "confidence": 0.3472,
+      "error": 0.0972
+    },
+    {
+      "bin": "0.4-0.5",
+      "count": 33,
+      "accuracy": 0.3939,
+      "confidence": 0.4374,
+      "error": 0.0435
+    },
+    {
+      "bin": "0.5-0.6",
+      "count": 26,
+      "accuracy": 0.5,
+      "confidence": 0.5474,
+      "error": 0.0474
+    },
+    {
+      "bin": "0.6-0.7",
+      "count": 36,
+      "accuracy": 0.6667,
+      "confidence": 0.6564,
+      "error": 0.0102
+    },
+    {
+      "bin": "0.7-0.8",
+      "count": 66,
+      "accuracy": 0.7576,
+      "confidence": 0.7562,
+      "error": 0.0014
+    },
+    {
+      "bin": "0.8-0.9",
+      "count": 82,
+      "accuracy": 0.8293,
+      "confidence": 0.8543,
+      "error": 0.025
+    },
+    {
+      "bin": "0.9-1.0",
+      "count": 1310,
+      "accuracy": 0.987,
+      "confidence": 0.9879,
+      "error": 0.0008
+    }
+  ],
+  "confidence_bands": {
+    "HIGH_CONFIDENCE": {
+      "synthetic_range": [
+        0.9,
+        1.0
+      ],
+      "real_range": [
+        0.0,
+        0.1
+      ],
+      "action": "Automated verification / Flagging with high certainty"
+    },
+    "MODERATE_CONFIDENCE": {
+      "synthetic_range": [
+        0.7,
+        0.9
+      ],
+      "real_range": [
+        0.1,
+        0.3
+      ],
+      "action": "Secondary review recommended / Check forensic explainability"
+    },
+    "LOW_CONFIDENCE_BORDERLINE": {
+      "range": [
+        0.3,
+        0.7
+      ],
+      "action": "Inconclusive authenticity score / Human forensic inspection required"
+    }
+  }
+}

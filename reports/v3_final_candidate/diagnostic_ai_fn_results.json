@@ -1,0 +1,420 @@
+{
+  "step1_loading": {
+    "checkpoint_path": "C:\\SignalScope\\models\\v3_final_candidate\\best_model.pt",
+    "architecture": "SignalScopeClassifier (EfficientNet)",
+    "device": "cpu",
+    "is_eval": true,
+    "temperature": 1.0195,
+    "decision_threshold": 0.5,
+    "class_mapping": {
+      "0": "REAL",
+      "1": "AI-GENERATED"
+    }
+  },
+  "step2_direct_model": [
+    {
+      "filename": "example_2_stable_diffusion.png",
+      "path": "data\\examples\\example_2_stable_diffusion.png",
+      "true_category": "AI-GENERATED",
+      "generator": "Stable Diffusion v1.5",
+      "raw_logits": [
+        -1.9263492822647095,
+        1.69511878490448
+      ],
+      "calibrated_p_real": 0.0278629157692194,
+      "calibrated_p_synth": 0.9721370339393616,
+      "pred_class": 1,
+      "pred_label": "AI-GENERATED",
+      "confidence": 0.9721370339393616,
+      "service_label": "AI-GENERATED",
+      "service_conf": "97.2%"
+    },
+    {
+      "filename": "example_3_wukong_diffusion.png",
+      "path": "data\\examples\\example_3_wukong_diffusion.png",
+      "true_category": "AI-GENERATED",
+      "generator": "Wukong Diffusion",
+      "raw_logits": [
+        -0.14075495302677155,
+        -0.08195890486240387
+      ],
+      "calibrated_p_real": 0.48558613657951355,
+      "calibrated_p_synth": 0.5144138932228088,
+      "pred_class": 1,
+      "pred_label": "AI-GENERATED",
+      "confidence": 0.5144138932228088,
+      "service_label": "AI-GENERATED",
+      "service_conf": "51.4%"
+    },
+    {
+      "filename": "example_4_adm_diffusion.png",
+      "path": "data\\examples\\example_4_adm_diffusion.png",
+      "true_category": "AI-GENERATED",
+      "generator": "ADM Guided Diffusion",
+      "raw_logits": [
+        -2.9493212699890137,
+        2.716599225997925
+      ],
+      "calibrated_p_real": 0.003843395272269845,
+      "calibrated_p_synth": 0.9961565732955933,
+      "pred_class": 1,
+      "pred_label": "AI-GENERATED",
+      "confidence": 0.9961565732955933,
+      "service_label": "AI-GENERATED",
+      "service_conf": "99.6%"
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-15 at 02.56.40.jpeg",
+      "path": "C:\\Users\\Priyani Rathod\\Downloads\\WhatsApp Image 2026-09-15 at 02.56.40.jpeg",
+      "true_category": "AI-GENERATED",
+      "generator": "User AI Download 1",
+      "raw_logits": [
+        3.763183116912842,
+        -3.863287925720215
+      ],
+      "calibrated_p_real": 0.9994363784790039,
+      "calibrated_p_synth": 0.0005636015557684004,
+      "pred_class": 0,
+      "pred_label": "REAL",
+      "confidence": 0.9994363784790039,
+      "service_label": "REAL",
+      "service_conf": "99.9%"
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-15 at 02.56.08.jpeg",
+      "path": "C:\\Users\\Priyani Rathod\\Downloads\\WhatsApp Image 2026-09-15 at 02.56.08.jpeg",
+      "true_category": "AI-GENERATED",
+      "generator": "User AI Download 2",
+      "raw_logits": [
+        1.9883887767791748,
+        -2.119981288909912
+      ],
+      "calibrated_p_real": 0.9825325012207031,
+      "calibrated_p_synth": 0.017467539757490158,
+      "pred_class": 0,
+      "pred_label": "REAL",
+      "confidence": 0.9825325012207031,
+      "service_label": "REAL",
+      "service_conf": "98.2%"
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-15 at 02.58.54.jpeg",
+      "path": "C:\\Users\\Priyani Rathod\\Downloads\\WhatsApp Image 2026-09-15 at 02.58.54.jpeg",
+      "true_category": "AI-GENERATED",
+      "generator": "User AI Download 3",
+      "raw_logits": [
+        5.164461612701416,
+        -5.478466510772705
+      ],
+      "calibrated_p_real": 0.9999707341194153,
+      "calibrated_p_synth": 2.9257054848130792e-05,
+      "pred_class": 0,
+      "pred_label": "REAL",
+      "confidence": 0.9999707341194153,
+      "service_label": "REAL",
+      "service_conf": "100.0%"
+    },
+    {
+      "filename": "example_1_real_nature.jpg",
+      "path": "data\\examples\\example_1_real_nature.jpg",
+      "true_category": "REAL",
+      "generator": "ImageNet Camera",
+      "raw_logits": [
+        6.217918395996094,
+        -6.1553730964660645
+      ],
+      "calibrated_p_real": 0.9999946355819702,
+      "calibrated_p_synth": 5.359539045457495e-06,
+      "pred_class": 0,
+      "pred_label": "REAL",
+      "confidence": 0.9999946355819702,
+      "service_label": "REAL",
+      "service_conf": "100.0%"
+    },
+    {
+      "filename": "real_astro_night_sky_0011.jpg",
+      "path": "data\\v3\\real\\real_astro_night_sky_0011.jpg",
+      "true_category": "REAL",
+      "generator": "Astrophotography",
+      "raw_logits": [
+        4.318581581115723,
+        -4.82693338394165
+      ],
+      "calibrated_p_real": 0.9998728632926941,
+      "calibrated_p_synth": 0.0001270772045245394,
+      "pred_class": 0,
+      "pred_label": "REAL",
+      "confidence": 0.9998728632926941,
+      "service_label": "REAL",
+      "service_conf": "100.0%"
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-15 at 02.08.20.jpeg",
+      "path": "C:\\Users\\Priyani Rathod\\Downloads\\WhatsApp Image 2026-09-15 at 02.08.20.jpeg",
+      "true_category": "REAL",
+      "generator": "User Camera (Gym)",
+      "raw_logits": [
+        3.34549617767334,
+        -3.3808910846710205
+      ],
+      "calibrated_p_real": 0.998638391494751,
+      "calibrated_p_synth": 0.0013616009382531047,
+      "pred_class": 0,
+      "pred_label": "REAL",
+      "confidence": 0.998638391494751,
+      "service_label": "REAL",
+      "service_conf": "99.9%"
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-15 at 02.08.28.jpeg",
+      "path": "C:\\Users\\Priyani Rathod\\Downloads\\WhatsApp Image 2026-09-15 at 02.08.28.jpeg",
+      "true_category": "REAL",
+      "generator": "User Camera (Polo)",
+      "raw_logits": [
+        4.1915082931518555,
+        -4.8193464279174805
+      ],
+      "calibrated_p_real": 0.9998549818992615,
+      "calibrated_p_synth": 0.0001450185663998127,
+      "pred_class": 0,
+      "pred_label": "REAL",
+      "confidence": 0.9998549818992615,
+      "service_label": "REAL",
+      "service_conf": "100.0%"
+    }
+  ],
+  "step3_api": [
+    {
+      "filename": "example_2_stable_diffusion.png",
+      "direct_real": 0.0278629157692194,
+      "direct_synth": 0.9721370339393616,
+      "direct_pred": "AI-GENERATED",
+      "api_real": 0.0279,
+      "api_synth": 0.9721,
+      "api_pred": "AI-GENERATED",
+      "match": true
+    },
+    {
+      "filename": "example_3_wukong_diffusion.png",
+      "direct_real": 0.48558613657951355,
+      "direct_synth": 0.5144138932228088,
+      "direct_pred": "AI-GENERATED",
+      "api_real": 0.4856,
+      "api_synth": 0.5144,
+      "api_pred": "AI-GENERATED",
+      "match": true
+    },
+    {
+      "filename": "example_4_adm_diffusion.png",
+      "direct_real": 0.003843395272269845,
+      "direct_synth": 0.9961565732955933,
+      "direct_pred": "AI-GENERATED",
+      "api_real": 0.0038,
+      "api_synth": 0.9962,
+      "api_pred": "AI-GENERATED",
+      "match": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-15 at 02.56.40.jpeg",
+      "direct_real": 0.9994363784790039,
+      "direct_synth": 0.0005636015557684004,
+      "direct_pred": "REAL",
+      "api_real": 0.9994,
+      "api_synth": 0.0006,
+      "api_pred": "REAL",
+      "match": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-15 at 02.56.08.jpeg",
+      "direct_real": 0.9825325012207031,
+      "direct_synth": 0.017467539757490158,
+      "direct_pred": "REAL",
+      "api_real": 0.9825,
+      "api_synth": 0.0175,
+      "api_pred": "REAL",
+      "match": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-15 at 02.58.54.jpeg",
+      "direct_real": 0.9999707341194153,
+      "direct_synth": 2.9257054848130792e-05,
+      "direct_pred": "REAL",
+      "api_real": 1.0,
+      "api_synth": 0.0,
+      "api_pred": "REAL",
+      "match": true
+    },
+    {
+      "filename": "example_1_real_nature.jpg",
+      "direct_real": 0.9999946355819702,
+      "direct_synth": 5.359539045457495e-06,
+      "direct_pred": "REAL",
+      "api_real": 1.0,
+      "api_synth": 0.0,
+      "api_pred": "REAL",
+      "match": true
+    },
+    {
+      "filename": "real_astro_night_sky_0011.jpg",
+      "direct_real": 0.9998728632926941,
+      "direct_synth": 0.0001270772045245394,
+      "direct_pred": "REAL",
+      "api_real": 0.9999,
+      "api_synth": 0.0001,
+      "api_pred": "REAL",
+      "match": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-15 at 02.08.20.jpeg",
+      "direct_real": 0.998638391494751,
+      "direct_synth": 0.0013616009382531047,
+      "direct_pred": "REAL",
+      "api_real": 0.9986,
+      "api_synth": 0.0014,
+      "api_pred": "REAL",
+      "match": true
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-15 at 02.08.28.jpeg",
+      "direct_real": 0.9998549818992615,
+      "direct_synth": 0.0001450185663998127,
+      "direct_pred": "REAL",
+      "api_real": 0.9999,
+      "api_synth": 0.0001,
+      "api_pred": "REAL",
+      "match": true
+    }
+  ],
+  "step7_v2_comparison": [
+    {
+      "filename": "example_2_stable_diffusion.png",
+      "true_category": "AI-GENERATED",
+      "generator": "Stable Diffusion v1.5",
+      "v2_pred": "AI-GENERATED",
+      "v2_confidence": 0.8325731158256531,
+      "v2_p_real": 0.16742686927318573,
+      "v2_p_synth": 0.8325731158256531,
+      "v3_pred": "AI-GENERATED",
+      "v3_confidence": 0.9721370339393616,
+      "v3_p_real": 0.0278629157692194,
+      "v3_p_synth": 0.9721370339393616
+    },
+    {
+      "filename": "example_3_wukong_diffusion.png",
+      "true_category": "AI-GENERATED",
+      "generator": "Wukong Diffusion",
+      "v2_pred": "AI-GENERATED",
+      "v2_confidence": 0.9460388422012329,
+      "v2_p_real": 0.053961146622896194,
+      "v2_p_synth": 0.9460388422012329,
+      "v3_pred": "AI-GENERATED",
+      "v3_confidence": 0.5144138932228088,
+      "v3_p_real": 0.48558613657951355,
+      "v3_p_synth": 0.5144138932228088
+    },
+    {
+      "filename": "example_4_adm_diffusion.png",
+      "true_category": "AI-GENERATED",
+      "generator": "ADM Guided Diffusion",
+      "v2_pred": "AI-GENERATED",
+      "v2_confidence": 0.588803768157959,
+      "v2_p_real": 0.4111963212490082,
+      "v2_p_synth": 0.588803768157959,
+      "v3_pred": "AI-GENERATED",
+      "v3_confidence": 0.9961565732955933,
+      "v3_p_real": 0.003843395272269845,
+      "v3_p_synth": 0.9961565732955933
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-15 at 02.56.40.jpeg",
+      "true_category": "AI-GENERATED",
+      "generator": "User AI Download 1",
+      "v2_pred": "AI-GENERATED",
+      "v2_confidence": 0.9181621074676514,
+      "v2_p_real": 0.08183785527944565,
+      "v2_p_synth": 0.9181621074676514,
+      "v3_pred": "REAL",
+      "v3_confidence": 0.9994363784790039,
+      "v3_p_real": 0.9994363784790039,
+      "v3_p_synth": 0.0005636015557684004
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-15 at 02.56.08.jpeg",
+      "true_category": "AI-GENERATED",
+      "generator": "User AI Download 2",
+      "v2_pred": "AI-GENERATED",
+      "v2_confidence": 0.6304340362548828,
+      "v2_p_real": 0.36956602334976196,
+      "v2_p_synth": 0.6304340362548828,
+      "v3_pred": "REAL",
+      "v3_confidence": 0.9825325012207031,
+      "v3_p_real": 0.9825325012207031,
+      "v3_p_synth": 0.017467539757490158
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-15 at 02.58.54.jpeg",
+      "true_category": "AI-GENERATED",
+      "generator": "User AI Download 3",
+      "v2_pred": "AI-GENERATED",
+      "v2_confidence": 0.621472179889679,
+      "v2_p_real": 0.37852776050567627,
+      "v2_p_synth": 0.621472179889679,
+      "v3_pred": "REAL",
+      "v3_confidence": 0.9999707341194153,
+      "v3_p_real": 0.9999707341194153,
+      "v3_p_synth": 2.9257054848130792e-05
+    },
+    {
+      "filename": "example_1_real_nature.jpg",
+      "true_category": "REAL",
+      "generator": "ImageNet Camera",
+      "v2_pred": "REAL",
+      "v2_confidence": 0.921267032623291,
+      "v2_p_real": 0.921267032623291,
+      "v2_p_synth": 0.07873295247554779,
+      "v3_pred": "REAL",
+      "v3_confidence": 0.9999946355819702,
+      "v3_p_real": 0.9999946355819702,
+      "v3_p_synth": 5.359539045457495e-06
+    },
+    {
+      "filename": "real_astro_night_sky_0011.jpg",
+      "true_category": "REAL",
+      "generator": "Astrophotography",
+      "v2_pred": "REAL",
+      "v2_confidence": 0.8381602764129639,
+      "v2_p_real": 0.8381602764129639,
+      "v2_p_synth": 0.16183973848819733,
+      "v3_pred": "REAL",
+      "v3_confidence": 0.9998728632926941,
+      "v3_p_real": 0.9998728632926941,
+      "v3_p_synth": 0.0001270772045245394
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-15 at 02.08.20.jpeg",
+      "true_category": "REAL",
+      "generator": "User Camera (Gym)",
+      "v2_pred": "AI-GENERATED",
+      "v2_confidence": 0.5552706718444824,
+      "v2_p_real": 0.44472938776016235,
+      "v2_p_synth": 0.5552706718444824,
+      "v3_pred": "REAL",
+      "v3_confidence": 0.998638391494751,
+      "v3_p_real": 0.998638391494751,
+      "v3_p_synth": 0.0013616009382531047
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-15 at 02.08.28.jpeg",
+      "true_category": "REAL",
+      "generator": "User Camera (Polo)",
+      "v2_pred": "REAL",
+      "v2_confidence": 0.6566529870033264,
+      "v2_p_real": 0.6566529870033264,
+      "v2_p_synth": 0.3433470129966736,
+      "v3_pred": "REAL",
+      "v3_confidence": 0.9998549818992615,
+      "v3_p_real": 0.9998549818992615,
+      "v3_p_synth": 0.0001450185663998127
+    }
+  ]
+}

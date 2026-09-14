@@ -1,5 +1,5 @@
-/**
- * SignalScope Frontend Application Controller
+﻿/**
+ * SignalScope V3 Frontend Application Controller
  * Connects directly to the live FastAPI backend for authentic inference,
  * Grad-CAM attribution rendering, and interactive explainability.
  */
@@ -48,7 +48,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const techDimensions = document.getElementById('techDimensions');
   const techLayer = document.getElementById('techLayer');
 
-  // Image Stage Elements
+  // Forensic Reasoning Card Elements
+  const forensicCard = document.getElementById('forensicCard');
+  const faithfulnessLabel = document.getElementById('faithfulnessLabel');
+  const faithfulnessDot = document.getElementById('faithfulnessDot');
+  const forensicRationaleText = document.getElementById('forensicRationaleText');
+  const statDeltaP = document.getElementById('statDeltaP');
+  const statPeakCoords = document.getElementById('statPeakCoords');
+  const statCausalStrength = document.getElementById('statCausalStrength');
+  const statConfidenceTier = document.getElementById('statConfidenceTier');
+
+  // Interactive Comparison Slider Elements
+  const sliderViewContainer = document.getElementById('sliderViewContainer');
+  const comparisonSlider = document.getElementById('comparisonSlider');
+  const sliderBefore = document.getElementById('sliderBefore');
+  const sliderAfter = document.getElementById('sliderAfter');
+  const sliderAfterWrap = document.getElementById('sliderAfterWrap');
+  const sliderDivider = document.getElementById('sliderDivider');
+
+  // Single & Split Image Stage Elements
   const baseImage = document.getElementById('baseImage');
   const overlayImage = document.getElementById('overlayImage');
   const splitOriginal = document.getElementById('splitOriginal');
@@ -61,6 +79,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const opacityValue = document.getElementById('opacityValue');
   const responsibleText = document.getElementById('responsibleText');
 
+  // Back to top elements
+  const backToTopBtn = document.getElementById('backToTopBtn');
+  const floatingBackToTop = document.getElementById('floatingBackToTop');
+
   // Error Toast
   const errorToast = document.getElementById('errorToast');
   const errorMessage = document.getElementById('errorMessage');
@@ -69,7 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // State
   let currentFile = null;
   let currentResult = null;
-  let currentViewMode = 'overlay';
+  let currentViewMode = 'slider';
+  let isDraggingSlider = false;
 
   // Dynamic API host determination (supports integrated :8000 and standalone :3000)
   const API_BASE = (window.location.port === '8000') ? '' : 'http://127.0.0.1:8000';
@@ -324,7 +347,28 @@ document.addEventListener('DOMContentLoaded', () => {
     techDimensions.textContent = `${data.image_width} x ${data.image_height} px`;
     techLayer.textContent = data.target_layer || 'backbone.features[8]';
 
-    // Populate Images
+    // Forensic Reasoning Card
+    if (data.forensic_rationale && forensicCard) {
+      forensicCard.style.display = 'block';
+      forensicRationaleText.textContent = data.forensic_rationale;
+
+      if (data.evidence) {
+        const ev = data.evidence;
+        const deltaPct = (ev.delta_probability * 100).toFixed(1);
+        statDeltaP.textContent = `${deltaPct}%`;
+        statPeakCoords.textContent = `(${ev.peak_centroid[0]}, ${ev.peak_centroid[1]})`;
+        statCausalStrength.textContent = ev.faithfulness === 'FAITHFUL' ? 'Strong (Faithful)' : (ev.faithfulness === 'PARTIALLY_FAITHFUL' ? 'Moderate' : 'Diffuse');
+        statConfidenceTier.textContent = data.confidence_band || 'HIGH CONFIDENCE';
+
+        faithfulnessLabel.textContent = ev.faithfulness === 'FAITHFUL' ? 'CAUSALLY VERIFIED (FAITHFUL)' : (ev.faithfulness === 'PARTIALLY_FAITHFUL' ? 'PARTIALLY CAUSAL' : 'DIFFUSE CUES');
+        faithfulnessDot.style.background = ev.faithfulness === 'FAITHFUL' ? '#10B981' : (ev.faithfulness === 'PARTIALLY_FAITHFUL' ? '#F59E0B' : '#3B82F6');
+      }
+    }
+
+    // Populate Images for Slider, Single, and Split modes
+    if (sliderBefore) sliderBefore.src = data.original_image;
+    if (sliderAfter) sliderAfter.src = data.overlay_image;
+
     baseImage.src = data.original_image;
     overlayImage.src = data.overlay_image;
 
@@ -334,11 +378,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     responsibleText.textContent = data.responsible_explanation;
 
-    // Reset view mode to overlay
-    setViewMode('overlay');
-    opacitySlider.value = 50;
-    opacityValue.textContent = '50%';
-    overlayImage.style.opacity = 0.5;
+    // Reset view mode to interactive slider
+    setViewMode('slider');
+    const tabs = document.querySelectorAll('.view-tab');
+    tabs.forEach(t => t.classList.remove('active'));
+    const sliderTab = document.querySelector('.view-tab[data-mode="slider"]');
+    if (sliderTab) sliderTab.classList.add('active');
 
     // Scroll smoothly to result
     resultDashboard.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -358,26 +403,41 @@ document.addEventListener('DOMContentLoaded', () => {
     currentViewMode = mode;
     if (!currentResult) return;
 
-    if (mode === 'overlay') {
+    if (mode === 'slider') {
+      if (sliderViewContainer) sliderViewContainer.style.display = 'flex';
+      singleViewContainer.style.display = 'none';
+      splitViewContainer.style.display = 'none';
+      sliderToolbar.style.display = 'none';
+      // Reset divider to center
+      if (sliderAfterWrap && sliderDivider) {
+        sliderAfterWrap.style.width = '50%';
+        sliderDivider.style.left = '50%';
+      }
+    } else if (mode === 'overlay') {
+      if (sliderViewContainer) sliderViewContainer.style.display = 'none';
       singleViewContainer.style.display = 'flex';
       splitViewContainer.style.display = 'none';
       sliderToolbar.style.display = 'flex';
       baseImage.src = currentResult.original_image;
       overlayImage.style.display = 'block';
       overlayImage.src = currentResult.overlay_image;
+      overlayImage.style.opacity = opacitySlider.value / 100.0;
     } else if (mode === 'heatmap') {
+      if (sliderViewContainer) sliderViewContainer.style.display = 'none';
       singleViewContainer.style.display = 'flex';
       splitViewContainer.style.display = 'none';
       sliderToolbar.style.display = 'none';
       baseImage.src = currentResult.heatmap_image;
       overlayImage.style.display = 'none';
     } else if (mode === 'original') {
+      if (sliderViewContainer) sliderViewContainer.style.display = 'none';
       singleViewContainer.style.display = 'flex';
       splitViewContainer.style.display = 'none';
       sliderToolbar.style.display = 'none';
       baseImage.src = currentResult.original_image;
       overlayImage.style.display = 'none';
     } else if (mode === 'split') {
+      if (sliderViewContainer) sliderViewContainer.style.display = 'none';
       singleViewContainer.style.display = 'none';
       splitViewContainer.style.display = 'grid';
       sliderToolbar.style.display = 'none';
@@ -390,15 +450,75 @@ document.addEventListener('DOMContentLoaded', () => {
     overlayImage.style.opacity = val / 100.0;
   });
 
-  // --- 6. Back to Top Smooth Navigation ---
-  const backToTopBtn = document.getElementById('backToTopBtn');
+  // --- 6. Comparison Slider Dragging Interaction ---
+  function updateSliderPosition(clientX) {
+    if (!comparisonSlider || !sliderAfterWrap || !sliderDivider) return;
+    const rect = comparisonSlider.getBoundingClientRect();
+    let pos = (clientX - rect.left) / rect.width;
+    pos = Math.max(0.02, Math.min(0.98, pos));
+    const pct = pos * 100;
+    sliderAfterWrap.style.width = `${pct}%`;
+    sliderDivider.style.left = `${pct}%`;
+  }
+
+  if (comparisonSlider) {
+    comparisonSlider.addEventListener('mousedown', (e) => {
+      isDraggingSlider = true;
+      updateSliderPosition(e.clientX);
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDraggingSlider) return;
+      updateSliderPosition(e.clientX);
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDraggingSlider = false;
+    });
+
+    comparisonSlider.addEventListener('touchstart', (e) => {
+      isDraggingSlider = true;
+      if (e.touches && e.touches[0]) updateSliderPosition(e.touches[0].clientX);
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+      if (!isDraggingSlider || !e.touches || !e.touches[0]) return;
+      updateSliderPosition(e.touches[0].clientX);
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+      isDraggingSlider = false;
+    });
+  }
+
+  // --- 7. Back to Top Smooth Navigation & Floating Trigger ---
+  function scrollToTop() {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    document.documentElement.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    document.body.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    const hero = document.getElementById('hero');
+    if (hero) hero.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   if (backToTopBtn) {
     backToTopBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+      scrollToTop();
+    });
+  }
+
+  if (floatingBackToTop) {
+    floatingBackToTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      scrollToTop();
+    });
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 280) {
+        floatingBackToTop.classList.add('visible');
+      } else {
+        floatingBackToTop.classList.remove('visible');
+      }
     });
   }
 

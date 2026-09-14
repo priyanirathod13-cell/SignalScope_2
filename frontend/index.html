@@ -36,13 +36,13 @@
         </div>
         <div class="brand-text">
           <span class="brand-title">SignalScope</span>
-          <span class="brand-subtitle">AI Image Detection & Explainability</span>
+          <span class="brand-subtitle">Telling Real From Synthetic in the Age of Generative Media</span>
         </div>
       </a>
 
       <div class="system-status-badge">
         <span class="status-dot"></span>
-        <span class="status-label" id="systemStatusLabel">Model Online • EfficientNet-B0</span>
+        <span class="status-label" id="systemStatusLabel">Model Online • SignalScope V3 (Letterboxed EfficientNet-B0)</span>
       </div>
     </div>
   </header>
@@ -270,6 +270,46 @@
           </div>
         </div>
 
+        <!-- Why SignalScope Made This Decision Forensic Card -->
+        <div class="glass-card forensic-card" id="forensicCard">
+          <div class="card-header-between">
+            <div>
+              <span class="badge-mini">FORENSIC REASONING</span>
+              <h3 class="card-title">Why SignalScope Made This Decision</h3>
+              <p class="card-subtitle">Causal validation via controlled peak-evidence occlusion testing</p>
+            </div>
+            <div class="faithfulness-pill" id="faithfulnessPill">
+              <span class="faithfulness-dot" id="faithfulnessDot"></span>
+              <span id="faithfulnessLabel">CAUSALLY VERIFIED</span>
+            </div>
+          </div>
+
+          <p class="forensic-rationale-text" id="forensicRationaleText">-</p>
+
+          <div class="forensic-evidence-grid">
+            <div class="forensic-stat-card">
+              <span class="stat-label">Causal Confidence Impact (&Delta;p)</span>
+              <span class="stat-value font-mono text-cyan" id="statDeltaP">-</span>
+              <span class="stat-desc">Confidence drop upon masking peak region</span>
+            </div>
+            <div class="forensic-stat-card">
+              <span class="stat-label">Peak Attribution Centroid</span>
+              <span class="stat-value font-mono" id="statPeakCoords">-</span>
+              <span class="stat-desc">Spatial coordinates (X, Y) in letterbox space</span>
+            </div>
+            <div class="forensic-stat-card">
+              <span class="stat-label">Causal Verification Strength</span>
+              <span class="stat-value font-mono text-green" id="statCausalStrength">-</span>
+              <span class="stat-desc" id="statCausalDesc">Controlled occlusion validation</span>
+            </div>
+            <div class="forensic-stat-card">
+              <span class="stat-label">Calibrated Confidence Band</span>
+              <span class="stat-value font-mono text-purple" id="statConfidenceTier">-</span>
+              <span class="stat-desc" id="statConfidenceDesc">Temperature scaling reliability</span>
+            </div>
+          </div>
+        </div>
+
         <!-- Forensic Explanation Section -->
         <div class="glass-card explanation-master-card">
           <div class="card-header-between">
@@ -281,7 +321,8 @@
 
             <!-- View Mode Switcher Tabs -->
             <div class="view-tabs" id="viewTabs">
-              <button type="button" class="view-tab active" data-mode="overlay">Overlay</button>
+              <button type="button" class="view-tab active" data-mode="slider">Interactive Slider</button>
+              <button type="button" class="view-tab" data-mode="overlay">Overlay</button>
               <button type="button" class="view-tab" data-mode="heatmap">Pure Heatmap</button>
               <button type="button" class="view-tab" data-mode="original">Original Image</button>
               <button type="button" class="view-tab" data-mode="split">Side-by-Side</button>
@@ -289,7 +330,7 @@
           </div>
 
           <!-- Transparency Slider (active in overlay mode) -->
-          <div class="slider-toolbar" id="sliderToolbar">
+          <div class="slider-toolbar" id="sliderToolbar" style="display: none;">
             <span class="slider-label">Overlay Transparency:</span>
             <input type="range" id="opacitySlider" min="0" max="100" value="50" class="range-slider">
             <span class="slider-value font-mono" id="opacityValue">50%</span>
@@ -297,8 +338,26 @@
 
           <!-- Image Stage -->
           <div class="image-stage" id="imageStage">
+            <!-- Interactive Comparison Slider View -->
+            <div class="slider-view-container" id="sliderViewContainer">
+              <div class="comparison-slider" id="comparisonSlider">
+                <img id="sliderBefore" src="" alt="Original Target" class="slider-img">
+                <div class="slider-after-wrap" id="sliderAfterWrap">
+                  <img id="sliderAfter" src="" alt="Forensic Evidence" class="slider-img">
+                </div>
+                <div class="slider-divider" id="sliderDivider">
+                  <div class="slider-handle">
+                    <span class="handle-arrow">&#9664;&#9654;</span>
+                  </div>
+                </div>
+                <span class="slider-label-tag label-left">ORIGINAL</span>
+                <span class="slider-label-tag label-right">EVIDENCE HEATMAP</span>
+              </div>
+              <p class="slider-instruction-text">&#8592; Drag slider to compare Original vs. Forensic Grad-CAM Evidence &#8594;</p>
+            </div>
+
             <!-- Single Mode View -->
-            <div class="single-view-container" id="singleViewContainer">
+            <div class="single-view-container" id="singleViewContainer" style="display: none;">
               <img id="baseImage" src="" alt="Analyzed Target">
               <img id="overlayImage" src="" alt="Heatmap Overlay" class="overlay-layer">
             </div>
@@ -358,6 +417,13 @@
       </span>
     </div>
   </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button type="button" class="floating-back-to-top" id="floatingBackToTop" title="Back to top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
 
   <script src="app.js"></script>
 </body>

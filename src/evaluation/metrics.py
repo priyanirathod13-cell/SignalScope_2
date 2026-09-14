@@ -58,14 +58,20 @@ def calculate_metrics(y_true, y_pred, y_prob):
     # ROC-AUC (using probability of class 1)
     auc = compute_roc_auc(y_true, y_prob)
 
+    fpr = fp / (fp + tn) if (fp + tn) > 0 else 0.0
+    fnr = fn / (fn + tp) if (fn + tp) > 0 else 0.0
+
     return {
         "accuracy": round(accuracy, 4),
         "roc_auc": round(auc, 4),
+        "f1": round(macro_f1, 4),
         "macro_f1": round(macro_f1, 4),
         "macro_precision": round(macro_precision, 4),
         "macro_recall": round(macro_recall, 4),
         "synthetic_f1": round(f1_1, 4),
         "real_f1": round(f1_0, 4),
+        "fpr": round(fpr, 4),
+        "fnr": round(fnr, 4),
         "confusion_matrix": {
             "tn": tn,
             "fp": fp,

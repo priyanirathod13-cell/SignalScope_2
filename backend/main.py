@@ -65,6 +65,13 @@ SAMPLE_REGISTRY = [
         "source": "Ablated Diffusion Model",
         "expected_label": "AI-GENERATED",
         "filename": "example_4_adm_diffusion.png"
+    },
+    {
+        "id": "example_5_diagnostic_sky",
+        "title": "Night Sky & Landscape",
+        "source": "Challenging Forensic Benchmark",
+        "expected_label": "AI-GENERATED",
+        "filename": "example_5_diagnostic_sky.jpeg"
     }
 ]
 

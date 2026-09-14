@@ -1,0 +1,28 @@
+{
+  "total_images": 21743,
+  "real_count": 10842,
+  "synthetic_count": 10901,
+  "train_count": 15220,
+  "validation_count": 3261,
+  "test_count": 3262,
+  "datasets_used": [
+    "CIFAKE",
+    "GenImage"
+  ],
+  "generators": [
+    "real_cifar10",
+    "real_imagenet",
+    "adm",
+    "stable_diffusion_v1_4",
+    "stable_diffusion_v1_5",
+    "wukong"
+  ],
+  "formats": {
+    "JPEG": 18821,
+    "PNG": 2922
+  },
+  "corrupted_images": 0,
+  "duplicate_count": 0,
+  "leakage_free": true,
+  "official_sih_held_out_used": false
+}

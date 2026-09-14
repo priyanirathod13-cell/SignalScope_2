@@ -1,0 +1,1626 @@
+{
+  "total_real_samples": 1650,
+  "total_false_positives": 85,
+  "fpr": 0.051515151515151514,
+  "fp_by_generator": {
+    "real_cifar10": 64,
+    "real_imagenet": 21
+  },
+  "false_positives": [
+    {
+      "path": "data\\v3\\real\\real_cifar10_05623.png",
+      "name": "real_cifar10_05623.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4345,
+      "p_synth": 0.5655,
+      "confidence": 0.5655,
+      "lap_var": 2007.8,
+      "brightness": 92.4,
+      "contrast": 55.0,
+      "raw_logits": [
+        -0.0754,
+        0.1932
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_04726.png",
+      "name": "real_cifar10_04726.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.2582,
+      "p_synth": 0.7418,
+      "confidence": 0.7418,
+      "lap_var": 7515.4,
+      "brightness": 160.0,
+      "contrast": 63.5,
+      "raw_logits": [
+        -0.4157,
+        0.6603
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_06050.png",
+      "name": "real_cifar10_06050.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.1997,
+      "p_synth": 0.8003,
+      "confidence": 0.8003,
+      "lap_var": 1881.3,
+      "brightness": 87.8,
+      "contrast": 41.2,
+      "raw_logits": [
+        -0.7446,
+        0.6706
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_04232.png",
+      "name": "real_cifar10_04232.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.0778,
+      "p_synth": 0.9222,
+      "confidence": 0.9222,
+      "lap_var": 1095.2,
+      "brightness": 98.5,
+      "contrast": 26.6,
+      "raw_logits": [
+        -1.3438,
+        1.1764
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_05988.png",
+      "name": "real_cifar10_05988.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.2797,
+      "p_synth": 0.7203,
+      "confidence": 0.7203,
+      "lap_var": 4695.9,
+      "brightness": 148.8,
+      "contrast": 40.5,
+      "raw_logits": [
+        -0.3812,
+        0.5835
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_06011.png",
+      "name": "real_cifar10_06011.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.3786,
+      "p_synth": 0.6214,
+      "confidence": 0.6214,
+      "lap_var": 1309.5,
+      "brightness": 112.8,
+      "contrast": 35.9,
+      "raw_logits": [
+        -0.3747,
+        0.1305
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_06598.png",
+      "name": "real_cifar10_06598.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.2899,
+      "p_synth": 0.7101,
+      "confidence": 0.7101,
+      "lap_var": 1354.2,
+      "brightness": 111.1,
+      "contrast": 26.3,
+      "raw_logits": [
+        -0.4428,
+        0.4705
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_01034.png",
+      "name": "real_cifar10_01034.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4248,
+      "p_synth": 0.5752,
+      "confidence": 0.5752,
+      "lap_var": 1572.2,
+      "brightness": 163.2,
+      "contrast": 57.7,
+      "raw_logits": [
+        -0.1347,
+        0.1745
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_07069.png",
+      "name": "real_cifar10_07069.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4166,
+      "p_synth": 0.5834,
+      "confidence": 0.5834,
+      "lap_var": 1640.9,
+      "brightness": 102.0,
+      "contrast": 32.7,
+      "raw_logits": [
+        -0.0469,
+        0.2963
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_02764.png",
+      "name": "real_cifar10_02764.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.3247,
+      "p_synth": 0.6753,
+      "confidence": 0.6753,
+      "lap_var": 3531.6,
+      "brightness": 104.8,
+      "contrast": 41.3,
+      "raw_logits": [
+        -0.2161,
+        0.5306
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_05431.png",
+      "name": "real_cifar10_05431.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.2816,
+      "p_synth": 0.7184,
+      "confidence": 0.7184,
+      "lap_var": 6085.8,
+      "brightness": 79.4,
+      "contrast": 49.2,
+      "raw_logits": [
+        -0.3549,
+        0.5999
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_03907.png",
+      "name": "real_cifar10_03907.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.0872,
+      "p_synth": 0.9128,
+      "confidence": 0.9128,
+      "lap_var": 4955.1,
+      "brightness": 80.0,
+      "contrast": 55.3,
+      "raw_logits": [
+        -1.1282,
+        1.2659
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_01251.png",
+      "name": "real_cifar10_01251.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.3527,
+      "p_synth": 0.6473,
+      "confidence": 0.6473,
+      "lap_var": 2457.3,
+      "brightness": 92.3,
+      "contrast": 42.9,
+      "raw_logits": [
+        -0.2602,
+        0.3586
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_05684.png",
+      "name": "real_cifar10_05684.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.3977,
+      "p_synth": 0.6023,
+      "confidence": 0.6023,
+      "lap_var": 1575.8,
+      "brightness": 137.9,
+      "contrast": 32.3,
+      "raw_logits": [
+        -0.1145,
+        0.3088
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_02619.png",
+      "name": "real_cifar10_02619.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.2743,
+      "p_synth": 0.7257,
+      "confidence": 0.7257,
+      "lap_var": 621.7,
+      "brightness": 157.9,
+      "contrast": 15.6,
+      "raw_logits": [
+        -0.354,
+        0.6377
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_02340.png",
+      "name": "real_cifar10_02340.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.387,
+      "p_synth": 0.613,
+      "confidence": 0.613,
+      "lap_var": 5067.1,
+      "brightness": 81.1,
+      "contrast": 55.7,
+      "raw_logits": [
+        -0.0261,
+        0.4428
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_06158.png",
+      "name": "real_cifar10_06158.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.3804,
+      "p_synth": 0.6196,
+      "confidence": 0.6196,
+      "lap_var": 3066.5,
+      "brightness": 139.7,
+      "contrast": 45.2,
+      "raw_logits": [
+        -0.3349,
+        0.1625
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_06949.png",
+      "name": "real_cifar10_06949.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4885,
+      "p_synth": 0.5115,
+      "confidence": 0.5115,
+      "lap_var": 2282.6,
+      "brightness": 23.2,
+      "contrast": 38.2,
+      "raw_logits": [
+        0.0646,
+        0.1115
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_03105.png",
+      "name": "real_cifar10_03105.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4977,
+      "p_synth": 0.5023,
+      "confidence": 0.5023,
+      "lap_var": 3757.3,
+      "brightness": 111.7,
+      "contrast": 71.3,
+      "raw_logits": [
+        0.0389,
+        0.0483
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_07489.png",
+      "name": "real_cifar10_07489.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.3598,
+      "p_synth": 0.6402,
+      "confidence": 0.6402,
+      "lap_var": 3990.7,
+      "brightness": 154.4,
+      "contrast": 62.0,
+      "raw_logits": [
+        -0.1753,
+        0.4123
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_03572.png",
+      "name": "real_cifar10_03572.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.261,
+      "p_synth": 0.739,
+      "confidence": 0.739,
+      "lap_var": 2412.5,
+      "brightness": 118.9,
+      "contrast": 51.4,
+      "raw_logits": [
+        -0.5986,
+        0.4624
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_02139.png",
+      "name": "real_cifar10_02139.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.1367,
+      "p_synth": 0.8633,
+      "confidence": 0.8633,
+      "lap_var": 5597.0,
+      "brightness": 119.8,
+      "contrast": 54.8,
+      "raw_logits": [
+        -0.7802,
+        1.0983
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_06911.png",
+      "name": "real_cifar10_06911.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4497,
+      "p_synth": 0.5503,
+      "confidence": 0.5503,
+      "lap_var": 2201.3,
+      "brightness": 113.7,
+      "contrast": 34.6,
+      "raw_logits": [
+        -0.0699,
+        0.136
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_02876.png",
+      "name": "real_cifar10_02876.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.13,
+      "p_synth": 0.87,
+      "confidence": 0.87,
+      "lap_var": 1364.6,
+      "brightness": 102.9,
+      "contrast": 43.9,
+      "raw_logits": [
+        -1.0035,
+        0.9347
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_03377.png",
+      "name": "real_cifar10_03377.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4025,
+      "p_synth": 0.5975,
+      "confidence": 0.5975,
+      "lap_var": 4159.0,
+      "brightness": 127.0,
+      "contrast": 53.8,
+      "raw_logits": [
+        -0.221,
+        0.1819
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_01939.png",
+      "name": "real_cifar10_01939.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4987,
+      "p_synth": 0.5013,
+      "confidence": 0.5013,
+      "lap_var": 1221.1,
+      "brightness": 67.7,
+      "contrast": 34.8,
+      "raw_logits": [
+        0.0277,
+        0.0328
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_06139.png",
+      "name": "real_cifar10_06139.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.0242,
+      "p_synth": 0.9758,
+      "confidence": 0.9758,
+      "lap_var": 1931.9,
+      "brightness": 175.8,
+      "contrast": 49.5,
+      "raw_logits": [
+        -1.826,
+        1.9418
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_07242.png",
+      "name": "real_cifar10_07242.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4108,
+      "p_synth": 0.5892,
+      "confidence": 0.5892,
+      "lap_var": 724.9,
+      "brightness": 136.4,
+      "contrast": 28.5,
+      "raw_logits": [
+        -0.238,
+        0.1296
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_07050.png",
+      "name": "real_cifar10_07050.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4809,
+      "p_synth": 0.5191,
+      "confidence": 0.5191,
+      "lap_var": 7281.4,
+      "brightness": 114.5,
+      "contrast": 66.2,
+      "raw_logits": [
+        -0.0065,
+        0.0715
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_01044.png",
+      "name": "real_cifar10_01044.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4968,
+      "p_synth": 0.5032,
+      "confidence": 0.5032,
+      "lap_var": 1325.2,
+      "brightness": 120.5,
+      "contrast": 64.7,
+      "raw_logits": [
+        0.0036,
+        0.0166
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_00079.png",
+      "name": "real_cifar10_00079.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.1609,
+      "p_synth": 0.8391,
+      "confidence": 0.8391,
+      "lap_var": 2614.1,
+      "brightness": 133.3,
+      "contrast": 41.3,
+      "raw_logits": [
+        -0.8152,
+        0.8688
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_03589.png",
+      "name": "real_cifar10_03589.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.0318,
+      "p_synth": 0.9682,
+      "confidence": 0.9682,
+      "lap_var": 7907.5,
+      "brightness": 98.9,
+      "contrast": 48.4,
+      "raw_logits": [
+        -1.6662,
+        1.8174
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_00819.png",
+      "name": "real_cifar10_00819.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.1659,
+      "p_synth": 0.8341,
+      "confidence": 0.8341,
+      "lap_var": 2555.0,
+      "brightness": 120.5,
+      "contrast": 68.2,
+      "raw_logits": [
+        -0.4831,
+        1.1637
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_03745.png",
+      "name": "real_cifar10_03745.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.0616,
+      "p_synth": 0.9384,
+      "confidence": 0.9384,
+      "lap_var": 6701.7,
+      "brightness": 135.7,
+      "contrast": 68.7,
+      "raw_logits": [
+        -1.3827,
+        1.394
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_00671.png",
+      "name": "real_cifar10_00671.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.0114,
+      "p_synth": 0.9886,
+      "confidence": 0.9886,
+      "lap_var": 6357.7,
+      "brightness": 94.8,
+      "contrast": 55.2,
+      "raw_logits": [
+        -2.0677,
+        2.481
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_05073.png",
+      "name": "real_cifar10_05073.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.2933,
+      "p_synth": 0.7067,
+      "confidence": 0.7067,
+      "lap_var": 3099.4,
+      "brightness": 71.2,
+      "contrast": 40.4,
+      "raw_logits": [
+        -0.481,
+        0.4157
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_03307.png",
+      "name": "real_cifar10_03307.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.3547,
+      "p_synth": 0.6453,
+      "confidence": 0.6453,
+      "lap_var": 1956.7,
+      "brightness": 144.6,
+      "contrast": 77.8,
+      "raw_logits": [
+        -0.5011,
+        0.1088
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_05422.png",
+      "name": "real_cifar10_05422.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.1869,
+      "p_synth": 0.8131,
+      "confidence": 0.8131,
+      "lap_var": 685.6,
+      "brightness": 50.8,
+      "contrast": 33.8,
+      "raw_logits": [
+        -0.7953,
+        0.7034
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_03198.png",
+      "name": "real_cifar10_03198.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4004,
+      "p_synth": 0.5996,
+      "confidence": 0.5996,
+      "lap_var": 5375.2,
+      "brightness": 119.0,
+      "contrast": 68.4,
+      "raw_logits": [
+        0.0494,
+        0.4608
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_03825.png",
+      "name": "real_cifar10_03825.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.3992,
+      "p_synth": 0.6008,
+      "confidence": 0.6008,
+      "lap_var": 2599.1,
+      "brightness": 127.0,
+      "contrast": 54.4,
+      "raw_logits": [
+        -0.2691,
+        0.1475
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_03872.png",
+      "name": "real_cifar10_03872.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4288,
+      "p_synth": 0.5712,
+      "confidence": 0.5712,
+      "lap_var": 649.8,
+      "brightness": 158.5,
+      "contrast": 22.0,
+      "raw_logits": [
+        0.0128,
+        0.305
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_07042.png",
+      "name": "real_cifar10_07042.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4338,
+      "p_synth": 0.5662,
+      "confidence": 0.5662,
+      "lap_var": 2529.2,
+      "brightness": 182.1,
+      "contrast": 27.4,
+      "raw_logits": [
+        -0.2088,
+        0.063
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_04537.png",
+      "name": "real_cifar10_04537.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4577,
+      "p_synth": 0.5423,
+      "confidence": 0.5423,
+      "lap_var": 2468.6,
+      "brightness": 86.5,
+      "contrast": 39.8,
+      "raw_logits": [
+        0.1205,
+        0.2932
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_01352.png",
+      "name": "real_cifar10_01352.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.317,
+      "p_synth": 0.683,
+      "confidence": 0.683,
+      "lap_var": 302.3,
+      "brightness": 137.9,
+      "contrast": 15.2,
+      "raw_logits": [
+        -0.4044,
+        0.3781
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_03893.png",
+      "name": "real_cifar10_03893.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.3893,
+      "p_synth": 0.6107,
+      "confidence": 0.6107,
+      "lap_var": 2941.7,
+      "brightness": 106.0,
+      "contrast": 47.8,
+      "raw_logits": [
+        -0.1921,
+        0.2671
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_01051.png",
+      "name": "real_cifar10_01051.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.0004,
+      "p_synth": 0.9996,
+      "confidence": 0.9996,
+      "lap_var": 1708.0,
+      "brightness": 48.5,
+      "contrast": 42.8,
+      "raw_logits": [
+        -3.756,
+        4.1801
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_01030.png",
+      "name": "real_cifar10_01030.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.0086,
+      "p_synth": 0.9914,
+      "confidence": 0.9914,
+      "lap_var": 3706.8,
+      "brightness": 131.5,
+      "contrast": 60.0,
+      "raw_logits": [
+        -2.1712,
+        2.6628
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_07192.png",
+      "name": "real_cifar10_07192.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.0473,
+      "p_synth": 0.9527,
+      "confidence": 0.9527,
+      "lap_var": 732.2,
+      "brightness": 114.9,
+      "contrast": 13.4,
+      "raw_logits": [
+        -1.47,
+        1.5909
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_04418.png",
+      "name": "real_cifar10_04418.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.2596,
+      "p_synth": 0.7404,
+      "confidence": 0.7404,
+      "lap_var": 1731.5,
+      "brightness": 97.8,
+      "contrast": 41.8,
+      "raw_logits": [
+        -0.601,
+        0.4674
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_02444.png",
+      "name": "real_cifar10_02444.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.2994,
+      "p_synth": 0.7006,
+      "confidence": 0.7006,
+      "lap_var": 4547.5,
+      "brightness": 147.1,
+      "contrast": 56.3,
+      "raw_logits": [
+        -0.5303,
+        0.3364
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_07131.png",
+      "name": "real_cifar10_07131.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.1534,
+      "p_synth": 0.8466,
+      "confidence": 0.8466,
+      "lap_var": 5564.6,
+      "brightness": 197.1,
+      "contrast": 56.7,
+      "raw_logits": [
+        -0.6681,
+        1.0735
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_04158.png",
+      "name": "real_cifar10_04158.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.0753,
+      "p_synth": 0.9247,
+      "confidence": 0.9247,
+      "lap_var": 930.6,
+      "brightness": 134.6,
+      "contrast": 33.5,
+      "raw_logits": [
+        -1.231,
+        1.3265
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_00913.png",
+      "name": "real_cifar10_00913.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.295,
+      "p_synth": 0.705,
+      "confidence": 0.705,
+      "lap_var": 5766.4,
+      "brightness": 120.4,
+      "contrast": 63.0,
+      "raw_logits": [
+        -0.2009,
+        0.6874
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_06151.png",
+      "name": "real_cifar10_06151.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.0883,
+      "p_synth": 0.9117,
+      "confidence": 0.9117,
+      "lap_var": 2995.1,
+      "brightness": 113.8,
+      "contrast": 65.7,
+      "raw_logits": [
+        -1.1573,
+        1.2223
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_02965.png",
+      "name": "real_cifar10_02965.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.0537,
+      "p_synth": 0.9463,
+      "confidence": 0.9463,
+      "lap_var": 2494.9,
+      "brightness": 153.7,
+      "contrast": 65.8,
+      "raw_logits": [
+        -1.4172,
+        1.5085
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_01741.png",
+      "name": "real_cifar10_01741.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.3018,
+      "p_synth": 0.6982,
+      "confidence": 0.6982,
+      "lap_var": 3991.2,
+      "brightness": 115.5,
+      "contrast": 59.1,
+      "raw_logits": [
+        -0.5589,
+        0.2964
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_03032.png",
+      "name": "real_cifar10_03032.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.1315,
+      "p_synth": 0.8685,
+      "confidence": 0.8685,
+      "lap_var": 868.1,
+      "brightness": 102.9,
+      "contrast": 34.1,
+      "raw_logits": [
+        -1.0175,
+        0.9071
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_01907.png",
+      "name": "real_cifar10_01907.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4814,
+      "p_synth": 0.5186,
+      "confidence": 0.5186,
+      "lap_var": 1993.7,
+      "brightness": 112.8,
+      "contrast": 40.6,
+      "raw_logits": [
+        -0.177,
+        -0.1012
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_05149.png",
+      "name": "real_cifar10_05149.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4762,
+      "p_synth": 0.5238,
+      "confidence": 0.5238,
+      "lap_var": 1493.1,
+      "brightness": 114.3,
+      "contrast": 34.0,
+      "raw_logits": [
+        0.0511,
+        0.1483
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_02276.png",
+      "name": "real_cifar10_02276.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.0014,
+      "p_synth": 0.9986,
+      "confidence": 0.9986,
+      "lap_var": 2048.5,
+      "brightness": 85.8,
+      "contrast": 21.0,
+      "raw_logits": [
+        -3.3411,
+        3.3936
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_00712.png",
+      "name": "real_cifar10_00712.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.0777,
+      "p_synth": 0.9223,
+      "confidence": 0.9223,
+      "lap_var": 2746.6,
+      "brightness": 117.8,
+      "contrast": 51.9,
+      "raw_logits": [
+        -1.3954,
+        1.1268
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_07308.png",
+      "name": "real_cifar10_07308.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4883,
+      "p_synth": 0.5117,
+      "confidence": 0.5117,
+      "lap_var": 251.7,
+      "brightness": 120.7,
+      "contrast": 61.1,
+      "raw_logits": [
+        0.0822,
+        0.1299
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_06033.png",
+      "name": "real_cifar10_06033.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.0284,
+      "p_synth": 0.9716,
+      "confidence": 0.9716,
+      "lap_var": 3766.6,
+      "brightness": 170.9,
+      "contrast": 70.8,
+      "raw_logits": [
+        -1.8022,
+        1.7975
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_cifar10_01143.png",
+      "name": "real_cifar10_01143.png",
+      "generator": "real_cifar10",
+      "source_dataset": "CIFAKE",
+      "width": 32,
+      "height": 32,
+      "aspect_ratio": 1.0,
+      "p_real": 0.091,
+      "p_synth": 0.909,
+      "confidence": 0.909,
+      "lap_var": 2759.8,
+      "brightness": 94.8,
+      "contrast": 65.3,
+      "raw_logits": [
+        -1.0447,
+        1.3021
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_adm_n02102040_1339.JPEG",
+      "name": "real_imagenet_adm_n02102040_1339.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 500,
+      "height": 500,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4953,
+      "p_synth": 0.5047,
+      "confidence": 0.5047,
+      "lap_var": 740.6,
+      "brightness": 57.9,
+      "contrast": 58.2,
+      "raw_logits": [
+        -0.1415,
+        -0.1222
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_adm_n07734744_7962.JPEG",
+      "name": "real_imagenet_adm_n07734744_7962.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 500,
+      "height": 437,
+      "aspect_ratio": 1.144,
+      "p_real": 0.4766,
+      "p_synth": 0.5234,
+      "confidence": 0.5234,
+      "lap_var": 402.5,
+      "brightness": 111.1,
+      "contrast": 47.2,
+      "raw_logits": [
+        -0.0381,
+        0.0573
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_wukong_n02100877_14391.JPEG",
+      "name": "real_imagenet_wukong_n02100877_14391.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 900,
+      "height": 900,
+      "aspect_ratio": 1.0,
+      "p_real": 0.2744,
+      "p_synth": 0.7256,
+      "confidence": 0.7256,
+      "lap_var": 114.3,
+      "brightness": 226.1,
+      "contrast": 55.0,
+      "raw_logits": [
+        -0.6058,
+        0.3855
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_wukong_n02417914_52915.JPEG",
+      "name": "real_imagenet_wukong_n02417914_52915.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 500,
+      "height": 500,
+      "aspect_ratio": 1.0,
+      "p_real": 0.3124,
+      "p_synth": 0.6876,
+      "confidence": 0.6876,
+      "lap_var": 3026.8,
+      "brightness": 119.5,
+      "contrast": 69.5,
+      "raw_logits": [
+        -0.5216,
+        0.2829
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_adm_n02101388_6090.JPEG",
+      "name": "real_imagenet_adm_n02101388_6090.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 482,
+      "height": 500,
+      "aspect_ratio": 1.037,
+      "p_real": 0.0886,
+      "p_synth": 0.9114,
+      "confidence": 0.9114,
+      "lap_var": 6498.5,
+      "brightness": 136.8,
+      "contrast": 58.4,
+      "raw_logits": [
+        -1.3392,
+        1.0376
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_wukong_n03125729_266.JPEG",
+      "name": "real_imagenet_wukong_n03125729_266.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 320,
+      "height": 320,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4798,
+      "p_synth": 0.5202,
+      "confidence": 0.5202,
+      "lap_var": 476.3,
+      "brightness": 182.2,
+      "contrast": 25.3,
+      "raw_logits": [
+        0.0019,
+        0.0845
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_stable_diffusion_v1_5_n04243546_3418.JPEG",
+      "name": "real_imagenet_stable_diffusion_v1_5_n04243546_3418.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 140,
+      "height": 145,
+      "aspect_ratio": 1.036,
+      "p_real": 0.1995,
+      "p_synth": 0.8005,
+      "confidence": 0.8005,
+      "lap_var": 5607.4,
+      "brightness": 77.1,
+      "contrast": 67.3,
+      "raw_logits": [
+        -0.6491,
+        0.7673
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_wukong_n04039381_6425.JPEG",
+      "name": "real_imagenet_wukong_n04039381_6425.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 428,
+      "height": 413,
+      "aspect_ratio": 1.036,
+      "p_real": 0.2709,
+      "p_synth": 0.7291,
+      "confidence": 0.7291,
+      "lap_var": 281.6,
+      "brightness": 133.2,
+      "contrast": 50.7,
+      "raw_logits": [
+        -0.6199,
+        0.3896
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_wukong_n01644900_4054.JPEG",
+      "name": "real_imagenet_wukong_n01644900_4054.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 500,
+      "height": 481,
+      "aspect_ratio": 1.04,
+      "p_real": 0.0881,
+      "p_synth": 0.9119,
+      "confidence": 0.9119,
+      "lap_var": 1229.0,
+      "brightness": 94.0,
+      "contrast": 68.8,
+      "raw_logits": [
+        -1.372,
+        1.0107
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_stable_diffusion_v1_5_n03891251_2908.JPEG",
+      "name": "real_imagenet_stable_diffusion_v1_5_n03891251_2908.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 491,
+      "height": 500,
+      "aspect_ratio": 1.018,
+      "p_real": 0.1367,
+      "p_synth": 0.8633,
+      "confidence": 0.8633,
+      "lap_var": 14615.1,
+      "brightness": 92.1,
+      "contrast": 62.2,
+      "raw_logits": [
+        -0.8506,
+        1.0283
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_adm_n02097298_12476.JPEG",
+      "name": "real_imagenet_adm_n02097298_12476.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 500,
+      "height": 495,
+      "aspect_ratio": 1.01,
+      "p_real": 0.3535,
+      "p_synth": 0.6465,
+      "confidence": 0.6465,
+      "lap_var": 7156.0,
+      "brightness": 127.3,
+      "contrast": 64.8,
+      "raw_logits": [
+        -0.3241,
+        0.2913
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_wukong_n03876231_8080.JPEG",
+      "name": "real_imagenet_wukong_n03876231_8080.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 480,
+      "height": 453,
+      "aspect_ratio": 1.06,
+      "p_real": 0.4194,
+      "p_synth": 0.5806,
+      "confidence": 0.5806,
+      "lap_var": 68.1,
+      "brightness": 120.3,
+      "contrast": 31.3,
+      "raw_logits": [
+        -0.2849,
+        0.0468
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_stable_diffusion_v1_5_n01580077_4008.JPEG",
+      "name": "real_imagenet_stable_diffusion_v1_5_n01580077_4008.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 500,
+      "height": 500,
+      "aspect_ratio": 1.0,
+      "p_real": 0.0407,
+      "p_synth": 0.9593,
+      "confidence": 0.9593,
+      "lap_var": 3151.3,
+      "brightness": 109.8,
+      "contrast": 39.5,
+      "raw_logits": [
+        -1.6814,
+        1.539
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_adm_n04111531_9461.JPEG",
+      "name": "real_imagenet_adm_n04111531_9461.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 200,
+      "height": 200,
+      "aspect_ratio": 1.0,
+      "p_real": 0.2952,
+      "p_synth": 0.7048,
+      "confidence": 0.7048,
+      "lap_var": 3336.2,
+      "brightness": 167.6,
+      "contrast": 90.4,
+      "raw_logits": [
+        -0.6581,
+        0.2291
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_adm_n02028035_1996.JPEG",
+      "name": "real_imagenet_adm_n02028035_1996.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 483,
+      "height": 500,
+      "aspect_ratio": 1.035,
+      "p_real": 0.2417,
+      "p_synth": 0.7583,
+      "confidence": 0.7583,
+      "lap_var": 1444.6,
+      "brightness": 91.1,
+      "contrast": 58.7,
+      "raw_logits": [
+        -0.5306,
+        0.6349
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_stable_diffusion_v1_5_n02087394_3079.JPEG",
+      "name": "real_imagenet_stable_diffusion_v1_5_n02087394_3079.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 500,
+      "height": 441,
+      "aspect_ratio": 1.134,
+      "p_real": 0.4255,
+      "p_synth": 0.5745,
+      "confidence": 0.5745,
+      "lap_var": 761.9,
+      "brightness": 126.7,
+      "contrast": 59.2,
+      "raw_logits": [
+        -0.3727,
+        -0.0665
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_adm_n04099969_9529.JPEG",
+      "name": "real_imagenet_adm_n04099969_9529.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 500,
+      "height": 485,
+      "aspect_ratio": 1.031,
+      "p_real": 0.1026,
+      "p_synth": 0.8974,
+      "confidence": 0.8974,
+      "lap_var": 1873.0,
+      "brightness": 106.8,
+      "contrast": 75.6,
+      "raw_logits": [
+        -1.0518,
+        1.1595
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_wukong_n02086079_14203.JPEG",
+      "name": "real_imagenet_wukong_n02086079_14203.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 256,
+      "height": 256,
+      "aspect_ratio": 1.0,
+      "p_real": 0.4744,
+      "p_synth": 0.5256,
+      "confidence": 0.5256,
+      "lap_var": 357.6,
+      "brightness": 154.0,
+      "contrast": 59.6,
+      "raw_logits": [
+        0.0319,
+        0.1365
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_wukong_n03290653_15596.JPEG",
+      "name": "real_imagenet_wukong_n03290653_15596.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 3200,
+      "height": 3200,
+      "aspect_ratio": 1.0,
+      "p_real": 0.1996,
+      "p_synth": 0.8004,
+      "confidence": 0.8004,
+      "lap_var": 697.3,
+      "brightness": 132.9,
+      "contrast": 65.1,
+      "raw_logits": [
+        -0.7364,
+        0.6797
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_stable_diffusion_v1_5_n07802026_4900.JPEG",
+      "name": "real_imagenet_stable_diffusion_v1_5_n07802026_4900.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 500,
+      "height": 484,
+      "aspect_ratio": 1.033,
+      "p_real": 0.089,
+      "p_synth": 0.911,
+      "confidence": 0.911,
+      "lap_var": 3997.2,
+      "brightness": 78.2,
+      "contrast": 61.1,
+      "raw_logits": [
+        -1.3421,
+        1.0289
+      ]
+    },
+    {
+      "path": "data\\v3\\real\\real_imagenet_adm_n03623198_14376.JPEG",
+      "name": "real_imagenet_adm_n03623198_14376.JPEG",
+      "generator": "real_imagenet",
+      "source_dataset": "GenImage",
+      "width": 160,
+      "height": 155,
+      "aspect_ratio": 1.032,
+      "p_real": 0.2937,
+      "p_synth": 0.7063,
+      "confidence": 0.7063,
+      "lap_var": 479.8,
+      "brightness": 175.5,
+      "contrast": 38.0,
+      "raw_logits": [
+        -0.5114,
+        0.3833
+      ]
+    }
+  ]
+}

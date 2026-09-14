@@ -1,0 +1,72 @@
+{
+  "dataset_version": "V2",
+  "description": "SignalScope V2 Expanded Multi-Dataset (GenImage + CIFAKE)",
+  "class_labels": {
+    "0": "REAL",
+    "1": "SYNTHETIC"
+  },
+  "target_counts": {
+    "total": 21743,
+    "real": 10842,
+    "synthetic": 10901
+  },
+  "splits": {
+    "train_ratio": 0.7,
+    "val_ratio": 0.15,
+    "test_ratio": 0.15,
+    "train_count": 15220,
+    "val_count": 3261,
+    "test_count": 3262,
+    "random_seed": 42
+  },
+  "duplicate_handling": {
+    "method": "SHA-256 cryptographic hashing",
+    "purged_exact_duplicates": 21,
+    "cross_split_leakage_hashes": 0
+  },
+  "generators": {
+    "real_camera": [
+      "real_cifar10",
+      "real_imagenet"
+    ],
+    "latent_diffusion": [
+      "stable_diffusion_v1_4",
+      "stable_diffusion_v1_5"
+    ],
+    "pixel_diffusion": [
+      "adm"
+    ],
+    "multilingual_diffusion": [
+      "wukong"
+    ]
+  },
+  "image_specs": {
+    "input_size": [
+      224,
+      224
+    ],
+    "normalization": {
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ]
+    }
+  },
+  "paths": {
+    "root": "data/v2",
+    "real_dir": "data/v2/real",
+    "synthetic_dir": "data/v2/synthetic",
+    "metadata_dir": "data/v2/metadata",
+    "splits_dir": "data/v2/splits",
+    "reports_dir": "data/v2/reports",
+    "train_split": "data/v2/splits/train",
+    "val_split": "data/v2/splits/validation",
+    "test_split": "data/v2/splits/test"
+  }
+}

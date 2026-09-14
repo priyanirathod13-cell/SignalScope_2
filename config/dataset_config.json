@@ -1,0 +1,102 @@
+{
+  "version": "2.0.0",
+  "targets": {
+    "target_real_count": 10842,
+    "target_synthetic_count": 10922,
+    "max_storage_mb": 2000
+  },
+  "datasets": {
+    "genimage": {
+      "enabled": true,
+      "name": "GenImage Benchmark",
+      "source": "https://huggingface.co/datasets/jhutter2/281_Genimage",
+      "license": "MIT (Subset) / CC-BY-NC-SA 4.0 (Original Benchmark)",
+      "paper": "GenImage: A Million-Scale Dataset for Detecting AI-Generated Image (NeurIPS 2023)",
+      "raw_dir": "data/raw/genimage",
+      "generators": {
+        "real": ["real_imagenet"],
+        "synthetic": ["adm", "stable_diffusion_v1_5", "wukong"]
+      }
+    },
+    "cifake": {
+      "enabled": true,
+      "name": "CIFAKE Benchmark",
+      "source": "https://huggingface.co/datasets/dragonintelligence/CIFAKE-image-dataset",
+      "license": "CC-BY 4.0 / Apache-2.0",
+      "paper": "CIFAKE: Image Classification and Explainable Identification of AI-Generated Synthetic Images (Bird & Lotfi, 2023)",
+      "parquet_train_url": "https://huggingface.co/datasets/dragonintelligence/CIFAKE-image-dataset/resolve/main/data/train-00000-of-00001.parquet",
+      "parquet_test_url": "https://huggingface.co/datasets/dragonintelligence/CIFAKE-image-dataset/resolve/main/data/test-00000-of-00001.parquet",
+      "raw_dir": "data/raw/cifake",
+      "sample_limit_per_class": 8000,
+      "generators": {
+        "real": ["real_cifar10"],
+        "synthetic": ["stable_diffusion_v1_4"]
+      }
+    }
+  },
+  "paths": {
+    "raw_dir": "data/raw",
+    "processed_dir": "data/processed",
+    "splits_dir": "data/splits",
+    "metadata_dir": "data/metadata",
+    "reports_dir": "reports/dataset",
+    "quarantine_dir": "data/quarantine"
+  },
+  "splits": {
+    "train_ratio": 0.70,
+    "val_ratio": 0.15,
+    "test_ratio": 0.15,
+    "random_seed": 42,
+    "stratify_by": ["label", "generator"]
+  },
+  "generator_holdout": {
+    "enabled": false,
+    "generators": []
+  },
+  "labels": {
+    "REAL": 0,
+    "SYNTHETIC": 1
+  },
+  "generators": {
+    "real": [
+      {
+        "name": "real_imagenet",
+        "source": "ImageNet-1K (ILSVRC) Camera Photography",
+        "family": "real_camera",
+        "categories": ["nature", "animals", "objects", "food", "landscapes"]
+      },
+      {
+        "name": "real_cifar10",
+        "source": "CIFAR-10 Photography",
+        "family": "real_camera",
+        "categories": ["vehicles", "animals", "airplanes", "ships"]
+      }
+    ],
+    "synthetic": [
+      {
+        "name": "adm",
+        "full_name": "Ablated Diffusion Model (ADM)",
+        "paper": "Diffusion Models Beat GANs on Image Synthesis (Dhariwal & Nichol, NeurIPS 2021)",
+        "family": "pixel_diffusion"
+      },
+      {
+        "name": "stable_diffusion_v1_5",
+        "full_name": "Stable Diffusion v1.5",
+        "developer": "Runway ML / Stability AI",
+        "family": "latent_diffusion"
+      },
+      {
+        "name": "stable_diffusion_v1_4",
+        "full_name": "Stable Diffusion v1.4 (CIFAKE)",
+        "developer": "CompVis / Stability AI",
+        "family": "latent_diffusion"
+      },
+      {
+        "name": "wukong",
+        "full_name": "Wukong Diffusion Model",
+        "developer": "Huawei Noah's Ark Lab",
+        "family": "multilingual_diffusion"
+      }
+    ]
+  }
+}

@@ -11,6 +11,20 @@ data/raw/
 data/processed/
 data/splits/
 data/debug_*
+data/v1/
+data/v2/
+data/v3/
+data/v3_1/
+data/cache/
+data/diagnostic_image.jpeg
+
+# Model weights
+models/v1_baseline/
+models/v2_expanded_data/
+models/v3_final_candidate/
+models/v3_1_fix/
+*.pt
+*.pth
 
 # Keep small metadata and sample test examples
 !data/metadata/

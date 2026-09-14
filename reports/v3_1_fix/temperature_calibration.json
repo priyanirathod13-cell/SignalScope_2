@@ -1,0 +1,104 @@
+{
+  "model_path": "models/v3_1_fix/best_model.pt",
+  "temperature": 1.0923,
+  "optimal_temperature": 1.0923,
+  "uncalibrated_nll": 0.3348,
+  "calibrated_nll": 0.3291,
+  "uncalibrated_ece": 0.043,
+  "calibrated_ece": 0.0362,
+  "ece_reduction_percent": 15.9,
+  "confidence_bands": {
+    "high_confidence_synthetic": [
+      0.85,
+      1.0
+    ],
+    "moderate_synthetic": [
+      0.6,
+      0.85
+    ],
+    "uncertain_ambiguous": [
+      0.4,
+      0.6
+    ],
+    "moderate_real": [
+      0.15,
+      0.4
+    ],
+    "high_confidence_real": [
+      0.0,
+      0.15
+    ]
+  },
+  "bin_details": [
+    {
+      "bin": "0.0-0.1",
+      "count": 442,
+      "accuracy": 0.0294,
+      "confidence": 0.0221,
+      "error": 0.0073
+    },
+    {
+      "bin": "0.1-0.2",
+      "count": 89,
+      "accuracy": 0.1124,
+      "confidence": 0.1419,
+      "error": 0.0296
+    },
+    {
+      "bin": "0.2-0.3",
+      "count": 78,
+      "accuracy": 0.2564,
+      "confidence": 0.2507,
+      "error": 0.0057
+    },
+    {
+      "bin": "0.3-0.4",
+      "count": 50,
+      "accuracy": 0.32,
+      "confidence": 0.3446,
+      "error": 0.0246
+    },
+    {
+      "bin": "0.4-0.5",
+      "count": 62,
+      "accuracy": 0.371,
+      "confidence": 0.4554,
+      "error": 0.0845
+    },
+    {
+      "bin": "0.5-0.6",
+      "count": 54,
+      "accuracy": 0.4444,
+      "confidence": 0.5532,
+      "error": 0.1087
+    },
+    {
+      "bin": "0.6-0.7",
+      "count": 68,
+      "accuracy": 0.5735,
+      "confidence": 0.648,
+      "error": 0.0744
+    },
+    {
+      "bin": "0.7-0.8",
+      "count": 83,
+      "accuracy": 0.6747,
+      "confidence": 0.7508,
+      "error": 0.0761
+    },
+    {
+      "bin": "0.8-0.9",
+      "count": 133,
+      "accuracy": 0.7594,
+      "confidence": 0.8589,
+      "error": 0.0995
+    },
+    {
+      "bin": "0.9-1.0",
+      "count": 513,
+      "accuracy": 0.9435,
+      "confidence": 0.97,
+      "error": 0.0266
+    }
+  ]
+}

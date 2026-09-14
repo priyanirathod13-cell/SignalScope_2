@@ -1,0 +1,94 @@
+{
+  "diagnostic_target": {
+    "filename": "diagnostic_image.jpeg",
+    "dimensions": [
+      745,
+      373
+    ],
+    "aspect_ratio": "2.00:1",
+    "format": "PNG",
+    "mode": "RGB",
+    "file_size_bytes": 379148
+  },
+  "model_metadata": {
+    "version": "V2",
+    "checkpoint": "models\\v2_expanded_data\\best_model.pt",
+    "architecture": "EfficientNet-B0 (Transfer Learning)",
+    "device": "cpu",
+    "eval_mode": true
+  },
+  "prediction": {
+    "predicted_class_index": 0,
+    "predicted_label": "REAL",
+    "confidence": 0.6719,
+    "confidence_percent": "67.19%",
+    "probabilities": {
+      "class_0_real": 0.6719,
+      "class_1_synthetic": 0.3281
+    },
+    "raw_logits": {
+      "class_0_real": 0.1657,
+      "class_1_synthetic": -0.5511
+    },
+    "inference_time_ms": 41.25,
+    "prediction_assessment": "INCORRECT (False Negative: AI-generated fantasy artwork predicted as REAL)"
+  },
+  "verification": {
+    "label_mapping_correct": true,
+    "label_mapping_trace": "src/training/dataset.py: 0=Real, 1=Synthetic -> backend/service.py: 0=REAL, 1=AI-GENERATED",
+    "preprocessing_matches_training": true,
+    "direct_model_backend_frontend_agreement": true,
+    "stability_variance": 0.0
+  },
+  "gradcam_evidence": {
+    "generated": true,
+    "target_layer": "backbone.features.8",
+    "strongest_activation_region": "Top 30% quadrant (Night Sky / Starfield)",
+    "zone_activations_class_0_real": {
+      "top_sky_stars": 0.2562,
+      "mid_ring_canopy": 0.0255,
+      "bottom_roots_ground": 0.0395
+    },
+    "zone_activations_class_1_synthetic": {
+      "top_sky_stars": 0.0988,
+      "mid_ring_canopy": 0.166,
+      "bottom_roots_ground": 0.1112
+    }
+  },
+  "faithfulness_test": {
+    "performed": true,
+    "method": "Controlled region occlusion (top sky vs center ring vs exact CAM pixels)",
+    "baseline_real_probability": 0.6719,
+    "baseline_synthetic_probability": 0.3281,
+    "test_1_sky_masked": {
+      "masked_real_probability": 0.3522,
+      "masked_synthetic_probability": 0.6478,
+      "real_probability_delta": -0.3197,
+      "decision_flipped": true
+    },
+    "test_2_ring_masked": {
+      "masked_real_probability": 0.975,
+      "masked_synthetic_probability": 0.025,
+      "synthetic_probability_delta": -0.3031
+    },
+    "test_3_exact_cam_masked": {
+      "masked_real_probability": 0.3746,
+      "masked_synthetic_probability": 0.6254,
+      "real_probability_delta": -0.2973
+    },
+    "assessment": "STRONG EVIDENCE OF FAITHFULNESS"
+  },
+  "model_behavior_explanation": {
+    "verdict": "REAL (67.2% Confidence)",
+    "why_v2_made_this_prediction": "The V2 model predicts REAL because its strongest attention is concentrated on the dark starry night sky in the upper quadrant. The ImageNet-1K pretrained convolutional filters (frozen in V2) associate natural astrophotography / night starfields with authentic photography. Because V2's synthetic training dataset (CIFAKE + GenImage) contained exclusively daylight object photographs and zero fantasy or night-sky images, the model relied on the starry background as a shortcut for REAL imagery. When the sky region is occluded, REAL probability drops substantially, proving that the night sky was the deciding factor.",
+    "trustworthiness": "HIGHLY INFORMATIVE OF MODEL BEHAVIOR, BUT EVIDENCE IS A DATASET SHORTCUT",
+    "is_pipeline_bug": false,
+    "root_cause": "Domain Shift & Dataset Bias (V2 trained on ImageNet/CIFAR object diffusion; fantasy cosmic illustrations are entirely unrepresented)."
+  },
+  "v3_recommendations": [
+    "Add diverse artistic, fantasy, and cosmic synthetic images to candidate training data",
+    "Unfreeze upper feature blocks (features[6-8]) in EfficientNet-B0 to reduce frozen ImageNet semantic bias",
+    "Implement letterboxing to prevent 2:1 panoramic aspect ratio squeezing",
+    "Implement calibrated confidence reporting with uncertainty flags for out-of-distribution artistic styles"
+  ]
+}

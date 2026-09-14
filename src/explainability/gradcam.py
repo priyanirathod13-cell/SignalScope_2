@@ -74,7 +74,8 @@ class GradCAM:
             # Register backward hook on output tensor to capture gradient w.r.t activation
             def backward_hook(grad):
                 self.gradients.append(grad)
-            out.register_hook(backward_hook)
+            if out.requires_grad:
+                out.register_hook(backward_hook)
 
         h = self.target_layer.register_forward_hook(forward_hook)
         self.handles.append(h)

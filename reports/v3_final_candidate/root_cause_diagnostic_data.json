@@ -1,0 +1,176 @@
+{
+  "step2": [
+    {
+      "image": "example_2_stable_diffusion.png",
+      "desc": "Stable Diffusion v1.5 (Benchmark AI)",
+      "raw_logits": [
+        -1.9263492822647095,
+        1.69511878490448
+      ],
+      "raw_softmax": [
+        0.02604680508375168,
+        0.9739531874656677
+      ],
+      "cal_probs": [
+        0.0278629157692194,
+        0.9721370339393616
+      ],
+      "final_class": 1,
+      "final_label": "AI-GENERATED"
+    },
+    {
+      "image": "example_4_adm_diffusion.png",
+      "desc": "ADM Guided Diffusion (Benchmark AI)",
+      "raw_logits": [
+        -2.9493212699890137,
+        2.716599225997925
+      ],
+      "raw_softmax": [
+        0.0034500164911150932,
+        0.9965499639511108
+      ],
+      "cal_probs": [
+        0.003843395272269845,
+        0.9961565732955933
+      ],
+      "final_class": 1,
+      "final_label": "AI-GENERATED"
+    },
+    {
+      "image": "WhatsApp Image 2026-09-15 at 02.56.08.jpeg",
+      "desc": "User AI Test 1 (02.56.08)",
+      "raw_logits": [
+        1.9883887767791748,
+        -2.119981288909912
+      ],
+      "raw_softmax": [
+        0.9838311672210693,
+        0.01616881787776947
+      ],
+      "cal_probs": [
+        0.9825325012207031,
+        0.017467539757490158
+      ],
+      "final_class": 0,
+      "final_label": "REAL"
+    },
+    {
+      "image": "WhatsApp Image 2026-09-15 at 02.56.40.jpeg",
+      "desc": "User AI Test 2 (02.56.40)",
+      "raw_logits": [
+        3.763183116912842,
+        -3.863287925720215
+      ],
+      "raw_softmax": [
+        0.9995129108428955,
+        0.0004871403507422656
+      ],
+      "cal_probs": [
+        0.9994363784790039,
+        0.0005636015557684004
+      ],
+      "final_class": 0,
+      "final_label": "REAL"
+    },
+    {
+      "image": "WhatsApp Image 2026-09-15 at 02.58.54.jpeg",
+      "desc": "User AI Test 3 (02.58.54)",
+      "raw_logits": [
+        5.164461612701416,
+        -5.478466510772705
+      ],
+      "raw_softmax": [
+        0.9999761581420898,
+        2.3868475182098337e-05
+      ],
+      "cal_probs": [
+        0.9999707341194153,
+        2.9257054848130792e-05
+      ],
+      "final_class": 0,
+      "final_label": "REAL"
+    }
+  ],
+  "retest": [
+    {
+      "image": "example_2_stable_diffusion.png",
+      "ground_truth": "AI-GENERATED",
+      "real_pct": "2.8%",
+      "synthetic_pct": "97.2%",
+      "prediction": "AI-GENERATED",
+      "desc": "SD 1.5 Benchmark"
+    },
+    {
+      "image": "example_3_wukong_diffusion.png",
+      "ground_truth": "AI-GENERATED",
+      "real_pct": "48.6%",
+      "synthetic_pct": "51.4%",
+      "prediction": "AI-GENERATED",
+      "desc": "Wukong Benchmark"
+    },
+    {
+      "image": "example_4_adm_diffusion.png",
+      "ground_truth": "AI-GENERATED",
+      "real_pct": "0.4%",
+      "synthetic_pct": "99.6%",
+      "prediction": "AI-GENERATED",
+      "desc": "ADM Benchmark"
+    },
+    {
+      "image": "WhatsApp Image 2026-09-15 at 02.56.08.jpeg",
+      "ground_truth": "AI-GENERATED",
+      "real_pct": "98.2%",
+      "synthetic_pct": "1.8%",
+      "prediction": "REAL",
+      "desc": "User AI (WhatsApp)"
+    },
+    {
+      "image": "WhatsApp Image 2026-09-15 at 02.56.40.jpeg",
+      "ground_truth": "AI-GENERATED",
+      "real_pct": "99.9%",
+      "synthetic_pct": "0.1%",
+      "prediction": "REAL",
+      "desc": "User AI (WhatsApp)"
+    },
+    {
+      "image": "example_1_real_nature.jpg",
+      "ground_truth": "REAL",
+      "real_pct": "100.0%",
+      "synthetic_pct": "0.0%",
+      "prediction": "REAL",
+      "desc": "ImageNet Nature"
+    },
+    {
+      "image": "real_astro_night_sky_0011.jpg",
+      "ground_truth": "REAL",
+      "real_pct": "100.0%",
+      "synthetic_pct": "0.0%",
+      "prediction": "REAL",
+      "desc": "Astrophotography"
+    },
+    {
+      "image": "real_astro_night_sky_0000.jpg",
+      "ground_truth": "REAL",
+      "real_pct": "100.0%",
+      "synthetic_pct": "0.0%",
+      "prediction": "REAL",
+      "desc": "Astrophotography"
+    },
+    {
+      "image": "WhatsApp Image 2026-09-15 at 02.08.20.jpeg",
+      "ground_truth": "REAL",
+      "real_pct": "99.9%",
+      "synthetic_pct": "0.1%",
+      "prediction": "REAL",
+      "desc": "User Camera (Gym)"
+    },
+    {
+      "image": "WhatsApp Image 2026-09-15 at 02.08.28.jpeg",
+      "ground_truth": "REAL",
+      "real_pct": "100.0%",
+      "synthetic_pct": "0.0%",
+      "prediction": "REAL",
+      "desc": "User Camera (Polo)"
+    }
+  ]
+}

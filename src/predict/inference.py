@@ -11,6 +11,8 @@ from pathlib import Path
 from typing import Dict, Any, Union, Optional
 
 from PIL import Image
+import numpy as np
+import scipy.ndimage
 import torch
 
 # Add project root to sys.path
@@ -72,12 +74,16 @@ def predict_image(
         w, h = img_rgb.size
 
     t0 = time.perf_counter()
-    tensor = val_transform(img_rgb).unsqueeze(0).to(device)
+    img_proc = img_rgb
+
+    tensor = val_transform(img_proc).unsqueeze(0).to(device)
 
     with torch.no_grad():
         logits = model(tensor)
-        probs = torch.softmax(logits, dim=1)
-        pred_class = int(torch.argmax(probs, dim=1).item())
+        probs = torch.softmax(logits / 1.0195, dim=1)
+        prob_synth = float(probs[0, 1].item())
+        prob_real = float(probs[0, 0].item())
+        pred_class = 1 if prob_synth > 0.50 else 0
         conf = float(probs[0, pred_class].item())
 
     dt = time.perf_counter() - t0

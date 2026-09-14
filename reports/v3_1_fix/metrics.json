@@ -1,0 +1,140 @@
+{
+  "standard_test": {
+    "accuracy": 0.8327,
+    "roc_auc": 0.9191,
+    "f1": 0.8321,
+    "macro_f1": 0.8321,
+    "macro_precision": 0.8377,
+    "macro_recall": 0.8327,
+    "synthetic_f1": 0.8423,
+    "real_f1": 0.8219,
+    "fpr": 0.2281,
+    "fnr": 0.1065,
+    "confusion_matrix": {
+      "tn": 609,
+      "fp": 180,
+      "fn": 84,
+      "tp": 705
+    }
+  },
+  "by_generator": {
+    "adm": {
+      "samples": 360,
+      "accuracy": 0.8528,
+      "mean_prob": 0.8063
+    },
+    "real_imagenet": {
+      "samples": 720,
+      "accuracy": 0.75,
+      "mean_prob": 0.2706
+    },
+    "real_night_sky": {
+      "samples": 69,
+      "accuracy": 1.0,
+      "mean_prob": 0.0004
+    },
+    "stable_diffusion_v1_5": {
+      "samples": 360,
+      "accuracy": 0.9139,
+      "mean_prob": 0.8354
+    },
+    "synth_cosmic_fantasy": {
+      "samples": 69,
+      "accuracy": 1.0,
+      "mean_prob": 0.9995
+    }
+  },
+  "unseen_generator_wukong": {
+    "accuracy": 0.8674,
+    "roc_auc": 0.9583,
+    "f1": 0.8663,
+    "macro_f1": 0.8663,
+    "macro_precision": 0.8803,
+    "macro_recall": 0.8674,
+    "synthetic_f1": 0.854,
+    "real_f1": 0.8786,
+    "fpr": 0.0407,
+    "fnr": 0.2244,
+    "confusion_matrix": {
+      "tn": 919,
+      "fp": 39,
+      "fn": 215,
+      "tp": 743
+    },
+    "synthetic_detection_rate": 0.7756
+  },
+  "user_diagnostic_images": [
+    {
+      "filename": "WhatsApp Image 2026-09-15 at 02.56.08.jpeg",
+      "dimensions": "1341x1173",
+      "aspect_ratio": "landscape",
+      "raw_logits": [
+        0.8937,
+        -0.9625
+      ],
+      "calibrated_prob_real": 0.8455,
+      "calibrated_prob_synth": 0.1545,
+      "prediction": "REAL",
+      "confidence": 0.8455,
+      "success": false
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-15 at 02.56.40.jpeg",
+      "dimensions": "1179x1414",
+      "aspect_ratio": "portrait",
+      "raw_logits": [
+        0.8387,
+        -0.461
+      ],
+      "calibrated_prob_real": 0.7667,
+      "calibrated_prob_synth": 0.2333,
+      "prediction": "REAL",
+      "confidence": 0.7667,
+      "success": false
+    },
+    {
+      "filename": "WhatsApp Image 2026-09-15 at 02.58.54.jpeg",
+      "dimensions": "738x1600",
+      "aspect_ratio": "portrait",
+      "raw_logits": [
+        0.8631,
+        -0.7364
+      ],
+      "calibrated_prob_real": 0.8122,
+      "calibrated_prob_synth": 0.1878,
+      "prediction": "REAL",
+      "confidence": 0.8122,
+      "success": false
+    }
+  ],
+  "padding_invariance": {
+    "mean_square_prob": 0.9804,
+    "mean_side_padded_prob": 0.9724,
+    "mean_top_padded_prob": 0.9567,
+    "padding_shift": 0.0237,
+    "invariant": true
+  },
+  "compression_sweep": {
+    "Q95": {
+      "detection_rate": 0.9667,
+      "mean_synthetic_prob": 0.9372
+    },
+    "Q85": {
+      "detection_rate": 0.9667,
+      "mean_synthetic_prob": 0.9501
+    },
+    "Q75": {
+      "detection_rate": 0.9667,
+      "mean_synthetic_prob": 0.9479
+    },
+    "Q65": {
+      "detection_rate": 1.0,
+      "mean_synthetic_prob": 0.9445
+    },
+    "Q50": {
+      "detection_rate": 1.0,
+      "mean_synthetic_prob": 0.9503
+    }
+  },
+  "temperature": 1.0923
+}
