@@ -229,3 +229,5 @@ evaluation/*.jpg
 
 # Temporary inspection script
 model/inspect_tempo.txt
+
+test_clone/

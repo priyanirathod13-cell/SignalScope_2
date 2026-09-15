@@ -15,11 +15,7 @@ from model.model import load_model
 
 PROJECT_DIR = PROJECT_DIR = Path(__file__).resolve().parent.parent
 
-MODEL_PATH = (
-    PROJECT_DIR
-    / "model"
-    / "signalscope_resnet18_v3.pth"
-)
+MODEL_PATH = PROJECT_DIR / "model" / "signalscope_resnet18_unseen_wukong.pth"
 
 IMAGE_SIZE = 224
 
