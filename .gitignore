@@ -1,12 +1,12 @@
-# Byte-compiled / optimized / DLL files
+﻿# Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[cod]
-*.pyc
+*.py[codz]
 *$py.class
 *.so
 .pytest_cache/
 
 # Large Raw Datasets (Do not commit large multi-gigabyte image directories)
+data/
 data/raw/
 data/processed/
 data/splits/
@@ -20,12 +20,14 @@ data/diagnostic_image.jpeg
 data/diagnostic_failures/
 data/user_real_person.jpg
 
-# Model weights
+# Model weights & checkpoints
 models/v1_baseline/
 models/v2_expanded_data/
 models/v3_final_candidate/
 models/v3_1_fix/
 models/v3_2_fix/
+model/*.pth
+model/*.pt
 *.pt
 *.pth
 
@@ -36,10 +38,14 @@ models/v3_2_fix/
 # Environments & Virtual Envs
 .env
 .env.*
+.envrc
 .venv/
+.venv
 env/
 venv/
 ENV/
+env.bak/
+venv.bak/
 
 # Node / Web build & dependencies
 node_modules/
@@ -53,6 +59,17 @@ desktop.ini
 *.log
 .vscode/
 .idea/
+.ipynb_checkpoints
+tempCodeRunnerFile.py
+
+# Streamlit
+.streamlit/secrets.toml
+
+# SignalScope evaluation images & temp inspection files
+evaluation/*.png
+evaluation/*.jpg
+model/inspect_tempo.txt
+test_clone/
 
 # Scratch & Temporary experiment scripts
 scratch/
