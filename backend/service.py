@@ -151,7 +151,8 @@ class DetectionService:
             model=self.model,
             image_input=img,
             device=self.device,
-            temperature=self.temperature
+            temperature=self.temperature,
+            image_name=filename
         )
 
         pred_class = evidence_result["predicted_class"]

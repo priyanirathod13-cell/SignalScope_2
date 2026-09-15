@@ -1,0 +1,52 @@
+image_filename,image_description,ablation_variant,variant_dims,p_real,p_synthetic,delta_p_synthetic,predicted_class
+image_1_foggy_road.jpeg,Foggy road/tree image,A_full_image,1179x1546,0.999934,0.000066,+0.000000,REAL
+image_1_foggy_road.jpeg,Foggy road/tree image,B_center_crop,1179x1179,0.932371,0.067628,+0.067562,REAL
+image_1_foggy_road.jpeg,Foggy road/tree image,C_left_crop,589x1546,0.998752,0.001248,+0.001182,REAL
+image_1_foggy_road.jpeg,Foggy road/tree image,D_right_crop,590x1546,0.997623,0.002377,+0.002311,REAL
+image_1_foggy_road.jpeg,Foggy road/tree image,E_top_crop,1179x773,0.999972,0.000028,-0.000038,REAL
+image_1_foggy_road.jpeg,Foggy road/tree image,F_bottom_crop,1179x773,0.999978,0.000022,-0.000044,REAL
+image_1_foggy_road.jpeg,Foggy road/tree image,G_central_50pct,590x773,0.999960,0.000040,-0.000026,REAL
+image_1_foggy_road.jpeg,Foggy road/tree image,H_mask_bottom_25pct,1179x1546,0.999965,0.000035,-0.000031,REAL
+image_1_foggy_road.jpeg,Foggy road/tree image,I_mask_top_25pct,1179x1546,0.999999,0.000001,-0.000065,REAL
+image_1_foggy_road.jpeg,Foggy road/tree image,J_mask_lateral_margins,1179x1546,0.999862,0.000138,+0.000072,REAL
+image_1_foggy_road.jpeg,Foggy road/tree image,K_horizontal_flip,1179x1546,0.999978,0.000022,-0.000044,REAL
+image_1_foggy_road.jpeg,Foggy road/tree image,L_resize_half,589x773,0.999932,0.000068,+0.000002,REAL
+image_1_foggy_road.jpeg,Foggy road/tree image,M_jpeg_Q95,1179x1546,0.999933,0.000067,+0.000001,REAL
+image_1_foggy_road.jpeg,Foggy road/tree image,M_jpeg_Q85,1179x1546,0.999945,0.000055,-0.000011,REAL
+image_1_foggy_road.jpeg,Foggy road/tree image,M_jpeg_Q75,1179x1546,0.999938,0.000062,-0.000004,REAL
+image_1_foggy_road.jpeg,Foggy road/tree image,M_jpeg_Q50,1179x1546,0.999907,0.000093,+0.000027,REAL
+image_1_foggy_road.jpeg,Foggy road/tree image,N_ui_removed,1179x1391,0.999587,0.000413,+0.000347,REAL
+image_2_three_people_indoor.jpeg,Three-person indoor image,A_full_image,1600x1200,0.999975,0.000025,+0.000000,REAL
+image_2_three_people_indoor.jpeg,Three-person indoor image,B_center_crop,1200x1200,0.472780,0.527220,+0.527195,AI-GENERATED
+image_2_three_people_indoor.jpeg,Three-person indoor image,C_left_crop,800x1200,0.999932,0.000068,+0.000043,REAL
+image_2_three_people_indoor.jpeg,Three-person indoor image,D_right_crop,800x1200,0.999995,0.000006,-0.000019,REAL
+image_2_three_people_indoor.jpeg,Three-person indoor image,E_top_crop,1600x600,0.999823,0.000177,+0.000153,REAL
+image_2_three_people_indoor.jpeg,Three-person indoor image,F_bottom_crop,1600x600,0.999942,0.000058,+0.000033,REAL
+image_2_three_people_indoor.jpeg,Three-person indoor image,G_central_50pct,800x600,0.999992,0.000008,-0.000017,REAL
+image_2_three_people_indoor.jpeg,Three-person indoor image,H_mask_bottom_25pct,1600x1200,0.999989,0.000011,-0.000014,REAL
+image_2_three_people_indoor.jpeg,Three-person indoor image,I_mask_top_25pct,1600x1200,0.999881,0.000119,+0.000094,REAL
+image_2_three_people_indoor.jpeg,Three-person indoor image,J_mask_lateral_margins,1600x1200,1.000000,0.000000,-0.000025,REAL
+image_2_three_people_indoor.jpeg,Three-person indoor image,K_horizontal_flip,1600x1200,0.999995,0.000004,-0.000020,REAL
+image_2_three_people_indoor.jpeg,Three-person indoor image,L_resize_half,800x600,0.999970,0.000030,+0.000006,REAL
+image_2_three_people_indoor.jpeg,Three-person indoor image,M_jpeg_Q95,1600x1200,0.999975,0.000025,-0.000000,REAL
+image_2_three_people_indoor.jpeg,Three-person indoor image,M_jpeg_Q85,1600x1200,0.999976,0.000024,-0.000001,REAL
+image_2_three_people_indoor.jpeg,Three-person indoor image,M_jpeg_Q75,1600x1200,0.999976,0.000024,-0.000001,REAL
+image_2_three_people_indoor.jpeg,Three-person indoor image,M_jpeg_Q50,1600x1200,0.999980,0.000020,-0.000005,REAL
+image_2_three_people_indoor.jpeg,Three-person indoor image,N_ui_removed,1600x1080,0.999937,0.000063,+0.000038,REAL
+image_3_instagram_screenshot.jpeg,Instagram screenshot containing three people,A_full_image,738x1600,0.999971,0.000029,+0.000000,REAL
+image_3_instagram_screenshot.jpeg,Instagram screenshot containing three people,B_center_crop,738x738,0.012322,0.987678,+0.987649,AI-GENERATED
+image_3_instagram_screenshot.jpeg,Instagram screenshot containing three people,C_left_crop,369x1600,0.995756,0.004244,+0.004215,REAL
+image_3_instagram_screenshot.jpeg,Instagram screenshot containing three people,D_right_crop,369x1600,0.999003,0.000997,+0.000968,REAL
+image_3_instagram_screenshot.jpeg,Instagram screenshot containing three people,E_top_crop,738x800,0.598184,0.401816,+0.401787,REAL
+image_3_instagram_screenshot.jpeg,Instagram screenshot containing three people,F_bottom_crop,738x800,0.842734,0.157266,+0.157237,REAL
+image_3_instagram_screenshot.jpeg,Instagram screenshot containing three people,G_central_50pct,369x800,0.988737,0.011263,+0.011234,REAL
+image_3_instagram_screenshot.jpeg,Instagram screenshot containing three people,H_mask_bottom_25pct,738x1600,0.999966,0.000034,+0.000005,REAL
+image_3_instagram_screenshot.jpeg,Instagram screenshot containing three people,I_mask_top_25pct,738x1600,0.999990,0.000010,-0.000019,REAL
+image_3_instagram_screenshot.jpeg,Instagram screenshot containing three people,J_mask_lateral_margins,738x1600,0.997677,0.002323,+0.002294,REAL
+image_3_instagram_screenshot.jpeg,Instagram screenshot containing three people,K_horizontal_flip,738x1600,0.999259,0.000741,+0.000712,REAL
+image_3_instagram_screenshot.jpeg,Instagram screenshot containing three people,L_resize_half,369x800,0.999974,0.000026,-0.000003,REAL
+image_3_instagram_screenshot.jpeg,Instagram screenshot containing three people,M_jpeg_Q95,738x1600,0.999969,0.000031,+0.000001,REAL
+image_3_instagram_screenshot.jpeg,Instagram screenshot containing three people,M_jpeg_Q85,738x1600,0.999969,0.000032,+0.000002,REAL
+image_3_instagram_screenshot.jpeg,Instagram screenshot containing three people,M_jpeg_Q75,738x1600,0.999976,0.000024,-0.000005,REAL
+image_3_instagram_screenshot.jpeg,Instagram screenshot containing three people,M_jpeg_Q50,738x1600,0.999969,0.000031,+0.000002,REAL
+image_3_instagram_screenshot.jpeg,Instagram screenshot containing three people,N_ui_removed,738x1120,0.999991,0.000009,-0.000020,REAL

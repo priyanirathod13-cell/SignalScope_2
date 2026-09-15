@@ -1,0 +1,54 @@
+{
+  "image_1_foggy_road": {
+    "v3": {
+      "p_real": 0.9999,
+      "p_synthetic": 0.0001,
+      "label": "REAL"
+    },
+    "v3_2": {
+      "p_real": 0.9466,
+      "p_synthetic": 0.0534,
+      "label": "REAL"
+    },
+    "status": "STILL REAL"
+  },
+  "image_2_three_people_indoor": {
+    "v3": {
+      "p_real": 1.0,
+      "p_synthetic": 0.0,
+      "label": "REAL"
+    },
+    "v3_2": {
+      "p_real": 0.9037,
+      "p_synthetic": 0.0963,
+      "label": "REAL"
+    },
+    "status": "STILL REAL"
+  },
+  "image_3_instagram_screenshot": {
+    "v3": {
+      "p_real": 1.0,
+      "p_synthetic": 0.0,
+      "label": "REAL"
+    },
+    "v3_2": {
+      "p_real": 0.5874,
+      "p_synthetic": 0.4126,
+      "label": "REAL"
+    },
+    "status": "STILL REAL"
+  },
+  "image_4_alpine_cabin": {
+    "v3": {
+      "p_real": 0.9825,
+      "p_synthetic": 0.0175,
+      "label": "REAL"
+    },
+    "v3_2": {
+      "p_real": 0.9759,
+      "p_synthetic": 0.0241,
+      "label": "REAL"
+    },
+    "status": "STILL REAL"
+  }
+}

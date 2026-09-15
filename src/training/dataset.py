@@ -66,6 +66,47 @@ class SocialMediaCompressionTransform:
         buffer.seek(0)
         return Image.open(buffer).convert("RGB")
 
+class RandomAspectPaddingTransform:
+    """
+    Randomly embeds square or non-square images into common photo / mobile aspect ratios
+    (16:9, 4:3, 3:4, 9:16, 1:1, etc.) with neutral gray (128, 128, 128) or dark (0, 0, 0) padding,
+    applied symmetrically to BOTH Real and Synthetic training images.
+    This decorrelates the presence of letterbox padding margins and border UI from the REAL class,
+    forcing the network to attend exclusively to semantic / frequency content.
+    """
+    def __init__(self, p=0.5):
+        self.p = p
+        self.target_ratios = [
+            (4, 3), (3, 4), (16, 9), (9, 16), (1, 1), (1.33, 1.0), (0.75, 1.0), (0.5625, 1.0)
+        ]
+        self.fill_colors = [(128, 128, 128), (128, 128, 128), (0, 0, 0), (32, 32, 32)]
+
+    def __call__(self, img):
+        if random.random() > self.p:
+            return img
+        w, h = img.size
+        ratio_w, ratio_h = random.choice(self.target_ratios)
+        fill = random.choice(self.fill_colors)
+
+        current_ar = w / h
+        target_ar = ratio_w / ratio_h
+
+        if current_ar > target_ar:
+            canvas_w = w
+            canvas_h = int(round(w / target_ar))
+        else:
+            canvas_h = h
+            canvas_w = int(round(h * target_ar))
+
+        canvas_w = max(w, canvas_w)
+        canvas_h = max(h, canvas_h)
+
+        padded = Image.new("RGB", (canvas_w, canvas_h), fill)
+        px = (canvas_w - w) // 2
+        py = (canvas_h - h) // 2
+        padded.paste(img, (px, py))
+        return padded
+
 class SignalScopeDataset(Dataset):
     """
     PyTorch Dataset for SignalScope Real vs. Synthetic Image Classification.
@@ -135,7 +176,7 @@ class SignalScopeDataset(Dataset):
 
         return img, label, gen
 
-def get_transforms(image_size=224, letterbox=True, is_train=True):
+def get_transforms(image_size=224, letterbox=True, is_train=True, aspect_padding=False):
     """
     Pretrained ImageNet normalization with robust training augmentations.
     """
@@ -145,14 +186,17 @@ def get_transforms(image_size=224, letterbox=True, is_train=True):
     resize_op = LetterboxTransform(target_size=image_size) if letterbox else transforms.Resize((image_size, image_size))
 
     if is_train:
-        return transforms.Compose([
-            SocialMediaCompressionTransform(p=0.45, q_min=50, q_max=92),
+        t_list = [SocialMediaCompressionTransform(p=0.45, q_min=50, q_max=92)]
+        if aspect_padding:
+            t_list.append(RandomAspectPaddingTransform(p=0.5))
+        t_list.extend([
             resize_op,
             transforms.RandomHorizontalFlip(p=0.5),
             transforms.ColorJitter(brightness=0.08, contrast=0.08),
             transforms.ToTensor(),
             transforms.Normalize(mean=imagenet_mean, std=imagenet_std)
         ])
+        return transforms.Compose(t_list)
     else:
         return transforms.Compose([
             resize_op,
@@ -166,8 +210,9 @@ def get_dataloaders(cfg):
     batch_size = data_cfg.get("batch_size", 32)
     num_workers = data_cfg.get("num_workers", 2)
     letterbox = data_cfg.get("letterbox", True)
+    aspect_padding = data_cfg.get("aspect_padding", False)
 
-    train_transform = get_transforms(image_size, letterbox=letterbox, is_train=True)
+    train_transform = get_transforms(image_size, letterbox=letterbox, is_train=True, aspect_padding=aspect_padding)
     val_transform = get_transforms(image_size, letterbox=letterbox, is_train=False)
 
     train_ds = SignalScopeDataset(data_cfg["train_dir"], transform=train_transform)

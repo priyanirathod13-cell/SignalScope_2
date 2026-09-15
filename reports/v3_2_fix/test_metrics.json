@@ -1,0 +1,60 @@
+{
+  "version": "V3.2",
+  "total_test_samples": 3165,
+  "overall_metrics": {
+    "accuracy": 0.9526,
+    "roc_auc": 0.9889,
+    "f1": 0.9526,
+    "macro_f1": 0.9526,
+    "macro_precision": 0.9524,
+    "macro_recall": 0.9532,
+    "synthetic_f1": 0.9513,
+    "real_f1": 0.9539,
+    "fpr": 0.06,
+    "fnr": 0.0337,
+    "confusion_matrix": {
+      "tn": 1551,
+      "fp": 99,
+      "fn": 51,
+      "tp": 1464
+    }
+  },
+  "generator_breakdown": {
+    "adm": {
+      "count": 145,
+      "accuracy": 0.931,
+      "class": "SYNTHETIC"
+    },
+    "real_cifar10": {
+      "count": 1200,
+      "accuracy": 0.9567,
+      "class": "REAL"
+    },
+    "real_imagenet": {
+      "count": 427,
+      "accuracy": 0.8899,
+      "class": "REAL"
+    },
+    "real_night_sky": {
+      "count": 23,
+      "accuracy": 1.0,
+      "class": "REAL"
+    },
+    "stable_diffusion_v1_4": {
+      "count": 1197,
+      "accuracy": 0.9716,
+      "class": "SYNTHETIC"
+    },
+    "stable_diffusion_v1_5": {
+      "count": 150,
+      "accuracy": 0.9533,
+      "class": "SYNTHETIC"
+    },
+    "synth_cosmic_fantasy": {
+      "count": 23,
+      "accuracy": 1.0,
+      "class": "SYNTHETIC"
+    }
+  },
+  "evaluation_time_sec": 51.71
+}

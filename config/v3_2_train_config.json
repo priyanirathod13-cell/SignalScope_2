@@ -1,0 +1,40 @@
+{
+  "version": "V3.2",
+  "model": {
+    "name": "efficientnet_b0",
+    "num_classes": 2,
+    "pretrained": true,
+    "freeze_features": true,
+    "unfreeze_blocks": [
+      6,
+      7,
+      8
+    ],
+    "dropout_rate": 0.3
+  },
+  "data": {
+    "train_dir": "data/v3/splits/train",
+    "val_dir": "data/v3/splits/validation",
+    "test_dir": "data/v3/splits/test",
+    "holdout_dir": "data/v3/generator_holdout_test",
+    "metadata_csv": "data/v3/metadata/images.csv",
+    "image_size": 224,
+    "batch_size": 32,
+    "num_workers": 0,
+    "letterbox": true,
+    "aspect_padding": true
+  },
+  "training": {
+    "base_checkpoint": "models/v3_final_candidate/best_model.pt",
+    "max_epochs": 2,
+    "backbone_lr": 5e-05,
+    "head_lr": 0.0003,
+    "weight_decay": 0.01,
+    "early_stopping_patience": 2,
+    "seed": 42,
+    "device": "auto",
+    "checkpoint_dir": "models/v3_2_fix",
+    "reports_dir": "reports/v3_2_fix",
+    "class_weights": "balanced"
+  }
+}

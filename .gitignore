@@ -17,12 +17,15 @@ data/v3/
 data/v3_1/
 data/cache/
 data/diagnostic_image.jpeg
+data/diagnostic_failures/
+data/user_real_person.jpg
 
 # Model weights
 models/v1_baseline/
 models/v2_expanded_data/
 models/v3_final_candidate/
 models/v3_1_fix/
+models/v3_2_fix/
 *.pt
 *.pth
 
@@ -54,3 +57,4 @@ desktop.ini
 # Scratch & Temporary experiment scripts
 scratch/
 .system_generated/
+*_backup.py

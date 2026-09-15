@@ -1,0 +1,72 @@
+[
+  {
+    "case_id": "image_1_foggy_road.jpeg",
+    "description": "Diagnostic Failure 1 (Foggy Road)",
+    "prediction": "REAL",
+    "confidence": "99.99%",
+    "p_real": "99.99%",
+    "p_synth": "0.01%",
+    "center_mass_pct": "7.0%",
+    "left_mass_pct": "44.4%",
+    "right_mass_pct": "39.0%",
+    "top_mass_pct": "14.0%",
+    "bottom_mass_pct": "45.2%",
+    "peak_occlusion_delta_p": "-0.00%"
+  },
+  {
+    "case_id": "image_2_three_people_indoor.jpeg",
+    "description": "Diagnostic Failure 2 (3 People Indoor)",
+    "prediction": "REAL",
+    "confidence": "100.00%",
+    "p_real": "100.00%",
+    "p_synth": "0.00%",
+    "center_mass_pct": "5.8%",
+    "left_mass_pct": "20.9%",
+    "right_mass_pct": "30.3%",
+    "top_mass_pct": "38.0%",
+    "bottom_mass_pct": "51.1%",
+    "peak_occlusion_delta_p": "+0.00%"
+  },
+  {
+    "case_id": "image_3_instagram_screenshot.jpeg",
+    "description": "Diagnostic Failure 3 (Instagram Screenshot)",
+    "prediction": "REAL",
+    "confidence": "100.00%",
+    "p_real": "100.00%",
+    "p_synth": "0.00%",
+    "center_mass_pct": "2.8%",
+    "left_mass_pct": "38.6%",
+    "right_mass_pct": "37.1%",
+    "top_mass_pct": "38.7%",
+    "bottom_mass_pct": "28.5%",
+    "peak_occlusion_delta_p": "+0.00%"
+  },
+  {
+    "case_id": "example_1_real_nature.jpg",
+    "description": "Benchmark Reference (Real Photo)",
+    "prediction": "REAL",
+    "confidence": "100.00%",
+    "p_real": "100.00%",
+    "p_synth": "0.00%",
+    "center_mass_pct": "8.7%",
+    "left_mass_pct": "19.2%",
+    "right_mass_pct": "27.7%",
+    "top_mass_pct": "19.4%",
+    "bottom_mass_pct": "65.4%",
+    "peak_occlusion_delta_p": "+0.00%"
+  },
+  {
+    "case_id": "example_2_stable_diffusion.png",
+    "description": "Benchmark Reference (Synthetic SD 1.5)",
+    "prediction": "AI-GENERATED",
+    "confidence": "97.21%",
+    "p_real": "2.79%",
+    "p_synth": "97.21%",
+    "center_mass_pct": "14.4%",
+    "left_mass_pct": "25.4%",
+    "right_mass_pct": "42.1%",
+    "top_mass_pct": "47.6%",
+    "bottom_mass_pct": "15.5%",
+    "peak_occlusion_delta_p": "+2.85%"
+  }
+]

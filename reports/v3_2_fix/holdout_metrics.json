@@ -1,0 +1,27 @@
+{
+  "version": "V3.2",
+  "held_out_generator": "Wukong",
+  "total_holdout_samples": 1916,
+  "wukong_unseen_acc": 0.9144,
+  "real_acc": 0.953,
+  "overall_acc": 0.9337,
+  "roc_auc": 0.9824,
+  "metrics": {
+    "accuracy": 0.9337,
+    "roc_auc": 0.9824,
+    "f1": 0.9337,
+    "macro_f1": 0.9337,
+    "macro_precision": 0.9344,
+    "macro_recall": 0.9337,
+    "synthetic_f1": 0.9324,
+    "real_f1": 0.935,
+    "fpr": 0.047,
+    "fnr": 0.0856,
+    "confusion_matrix": {
+      "tn": 913,
+      "fp": 45,
+      "fn": 82,
+      "tp": 876
+    }
+  }
+}
