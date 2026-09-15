@@ -67,7 +67,7 @@ def predict_image(
             device = next(model.parameters()).device
         image_size = 224
 
-    _, val_transform = get_transforms(image_size)
+    val_transform = get_transforms(image_size=image_size, letterbox=True, is_train=False)
 
     with Image.open(image_path) as img:
         img_rgb = img.convert("RGB")
@@ -76,15 +76,22 @@ def predict_image(
     t0 = time.perf_counter()
     img_proc = img_rgb
 
-    tensor = val_transform(img_proc).unsqueeze(0).to(device)
+    side = min(w, h)
+    views = [img_proc]
+    if w > h:
+        views += [img_proc.crop((0,0,side,h)), img_proc.crop(((w-side)//2,0,(w-side)//2+side,h)), img_proc.crop((w-side,0,w,h))]
+    elif h > w:
+        views += [img_proc.crop((0,0,w,side)), img_proc.crop((0,(h-side)//2,w,(h-side)//2+side)), img_proc.crop((0,h-side,w,h))]
 
     with torch.no_grad():
-        logits = model(tensor)
-        probs = torch.softmax(logits / 1.0195, dim=1)
-        prob_synth = float(probs[0, 1].item())
-        prob_real = float(probs[0, 0].item())
+        tensors = torch.stack([val_transform(v) for v in views]).to(device)
+        logits = model(tensors)
+        probs_all = torch.softmax(logits / 1.0195, dim=1)
+        probs = probs_all.mean(dim=0, keepdim=True)
+        prob_synth = float(probs[0,1].item())
+        prob_real = float(probs[0,0].item())
         pred_class = 1 if prob_synth > 0.50 else 0
-        conf = float(probs[0, pred_class].item())
+        conf = float(probs[0,pred_class].item())
 
     dt = time.perf_counter() - t0
 
