@@ -81,10 +81,39 @@ def run_evidence_test(
         cam_result = gradcam_engine.generate(input_tensor, target_class=target_class)
 
     logits = cam_result["logits"]
-    # Temperature scaling if calibrated
-    scaled_logits = [l / temperature for l in logits]
-    scaled_exp = np.exp(scaled_logits - np.max(scaled_logits))
-    calibrated_probs = scaled_exp / np.sum(scaled_exp)
+
+    # Multi-view classification
+    # Full view + spatial square crops.
+    views = [raw_img]
+    side = min(w_orig, h_orig)
+
+    if w_orig > h_orig:
+        left_crop = raw_img.crop((0, 0, side, h_orig))
+        center_x = (w_orig - side) // 2
+        center_crop = raw_img.crop((center_x, 0, center_x + side, h_orig))
+        right_crop = raw_img.crop((w_orig - side, 0, w_orig, h_orig))
+        views.extend([left_crop, center_crop, right_crop])
+    elif h_orig > w_orig:
+        top_crop = raw_img.crop((0, 0, w_orig, side))
+        center_y = (h_orig - side) // 2
+        center_crop = raw_img.crop((0, center_y, w_orig, center_y + side))
+        bottom_crop = raw_img.crop((0, h_orig - side, w_orig, h_orig))
+        views.extend([top_crop, center_crop, bottom_crop])
+
+    view_tensors = []
+    for view in views:
+        view_letterboxed = LetterboxTransform(target_size=224)(view)
+        view_tensors.append(norm_transform(view_letterboxed))
+
+    batch = torch.stack(view_tensors).to(device)
+
+    with torch.no_grad():
+        view_logits = model(batch)
+        view_scaled = view_logits / temperature
+        view_probs = torch.softmax(view_scaled, dim=1)
+        calibrated_probs = view_probs.mean(dim=0).cpu().numpy()
+
+    scaled_logits = np.asarray(logits, dtype=np.float32) / temperature
 
     prob_real = float(calibrated_probs[0])
     prob_synth = float(calibrated_probs[1])
